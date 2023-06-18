@@ -1,0 +1,24 @@
+{
+    "name": "proyecto_02_progra_web",
+    "version": "1.0.0",
+    "description": "Proyecto II, programación Web 2023 - UNA",
+    "author": "David Rojas Chavarria, Fernanda Quesada Pineda",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview --port 5050"
+    },
+    "dependencies": {
+        "bootstrap": "5.0.2",
+        "bootstrap-icons": "1.8.3",
+        "less": "4.1.3",
+        "uikit": "3.14.1",
+        "uuid": "9.0.0",
+        "vue": "^3.2.33"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^2.3.1",
+        "vite": "^2.9.5",
+        "vue-router": "4.0.15"
+    }
+}
