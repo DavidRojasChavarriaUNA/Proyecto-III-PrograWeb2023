@@ -2,6 +2,18 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 
+import 'primevue/resources/themes/saga-blue/theme.css'
+import 'primevue/resources/primevue.min.css'
+
+import 'primeflex/primeflex.css'
+import 'primeicons/primeicons.css'
+
+import PrimeVue from 'primevue/config'
+
+import InputText from 'primevue/inputtext'
+import Button from 'primevue/button'
+import Password from 'primevue/password'
+
 import SitioInterno from './sitioInterno/App.vue'
 
 import CrearVotacion from './sitioInterno/votacion/create.vue'
@@ -61,5 +73,10 @@ const router = createRouter({
 const app = createApp(App)
 
 app.use(router)
+
+app.use(PrimeVue);
+app.component('InputText', InputText);
+app.component('Button', Button);
+app.component('Password', Password);
 
 app.mount('#app')
