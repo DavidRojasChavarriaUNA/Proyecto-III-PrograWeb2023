@@ -8,33 +8,32 @@
               <h3 class="card-title text-center mt-3">
                 Bienvenido de vuelta!
               </h3>
-              <form class="form-stacked text-center mt-3">
+              <form class="form-stacked m-3">
                 <template v-if="message">
                   <div>
                     <message severity="error">{{ message }}</message>
                   </div>
                 </template>
-                <div class="field text-center">
-                  <label for="email">Correo electrónico</label>
-                  <span class="input-group-addon">
+
+                <label for="email">Correo electrónico</label>
+                <div class="p-inputgroup flex-1 mb-3 mt-2">
+                  <span class="p-inputgroup-addon">
                     <i class="pi pi-envelope"></i>
-                  </span> 
-                  <InputText class=" h-3rem w-9" id="email" type="email" name="email" v-model="user.email" required />
+                  </span>
+                  <InputText class=" " id="email" type="email" name="email" v-model="user.email" required />
                 </div>
 
-                <div class="field">
-                  <label for="password">Contraseña  </label>
-                  <span class="input-group-addon">
+
+                <label for="password">Contraseña</label>
+                <div class="p-inputgroup flex-1 mt-2">
+                  <span class="p-inputgroup-addon">
                     <i class="pi pi-lock"></i>
                   </span>
-                  <br>
-                  <Password class="h-3rem text-center" id="password" name="password" v-model="user.password" required />
+                  <Password id="password" name="password" v-model="user.password" required />
                 </div>
 
-                <div class="field text-center">
-                  <Button type="button" class="p-button-primary p-button-lg p-button-block" @click="loginUser(user)">
-                    Iniciar Sesión
-                  </Button>
+                <div class="field text-center mt-4">
+                  <Button size="normal" label="Iniciar Sesión" class="p-button-block" @click="loginUser(user)" />
                 </div>
                 <div class="text-small text-center">
                   Necesita registrarse?
