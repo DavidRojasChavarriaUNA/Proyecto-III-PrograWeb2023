@@ -1,58 +1,56 @@
 <template>
-    <main class="uk-container">
-    <article id="registro" class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade"
-        uk-height-viewport="expand: true">
-        <div class="uk-container">
-            <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
-                <div class="uk-width-1-1@m">
-                    <div
-                        class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-                        <h3 class="uk-card-title uk-text-center">
-                            Bienvenido de vuelta!
-                        </h3>
-                        <form class="uk-form-stacked">
-                            <template v-if="message">
-                              <div class="uk-alert-danger" uk-alert>
-                                <a class="uk-alert-close" uk-close></a>
-                                <p>{{message}}</p>
-                              </div>
-                            </template>
-                            <div class="uk-margin">
-                                <label class="uk-form-label" for="form-stacked-text">Correo electrónico</label>
-                                <div class="uk-inline uk-width-1-1">
-                                    <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                                    <input class="uk-input uk-form-large" type="email" name="email" v-model="user.email"
-                                        required />
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <label class="uk-form-label" for="form-stacked-text">Contraseña</label>
-                                <div class="uk-inline uk-width-1-1">
-                                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                    <input class="uk-input uk-form-large" type="password" name="password"
-                                    v-model="user.password" required />
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <button type="button" class="uk-button uk-button-primary uk-button-large uk-width-1-1" v-on:click="loginUser(user)">
-                                    Iniciar Sesión
-                                </button>
-                            </div>
-                            <div class="uk-text-small uk-text-center">
-                                Necesita registrarse?
-                                <router-link to="/register">Crear una cuenta</router-link>
-                            </div>
-                        </form>
-                    </div>
+  <main class="container">
+    <article id="registro" class="section section-muted d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="mt-4 mx-auto card card-default card-body box-shadow-large" style="max-width: 400px">
+              <h3 class="card-title text-center mt-3">
+                Bienvenido de vuelta!
+              </h3>
+              <form class="form-stacked text-center mt-3">
+                <template v-if="message">
+                  <div>
+                    <message severity="error">{{ message }}</message>
+                  </div>
+                </template>
+                <div class="field text-center">
+                  <label for="email">Correo electrónico</label>
+                  <span class="input-group-addon">
+                    <i class="pi pi-envelope"></i>
+                  </span> 
+                  <InputText class=" h-3rem w-9" id="email" type="email" name="email" v-model="user.email" required />
                 </div>
+
+                <div class="field">
+                  <label for="password">Contraseña  </label>
+                  <span class="input-group-addon">
+                    <i class="pi pi-lock"></i>
+                  </span>
+                  <br>
+                  <Password class="h-3rem text-center" id="password" name="password" v-model="user.password" required />
+                </div>
+
+                <div class="field text-center">
+                  <Button type="button" class="p-button-primary p-button-lg p-button-block" @click="loginUser(user)">
+                    Iniciar Sesión
+                  </Button>
+                </div>
+                <div class="text-small text-center">
+                  Necesita registrarse?
+                  <RouterLink to="/register">Crear una cuenta</RouterLink>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </article>
-</main>
+  </main>
 </template>
 
+
 <script>
-import { triggerRef } from 'vue';
 import { Codigos } from '../../js/sitioPublicidad'
 
 const urlBase = import.meta.env.VITE_BASE_URL;
@@ -68,13 +66,13 @@ export default {
 
   },
   methods: {
-    mostrarMensaje(mensaje){
+    mostrarMensaje(mensaje) {
       this.message = `${mensaje.Code} - ${mensaje.message}`;
     },
-    async loginUser(u) { 
+    async loginUser(u) {
       console.log(u);
       try {
-      
+
         const respuestaHttp = await fetch(`${urlBase}/seguridad/autenticate`,
           {
             headers: {
@@ -84,12 +82,10 @@ export default {
             method: 'POST',
             body: JSON.stringify(u)
           });
-          console.log('RERS'+respuestaHttp);
+        console.log('RERS' + respuestaHttp);
         const respuesta = await respuestaHttp.json();
-        console.log('RESPUESTA '+respuesta);
+        console.log('RESPUESTA ' + respuesta);
         if (respuesta && (respuesta.Code == Codigos.CodeSuccess)) {
-          //this.$emit('mostrarMensaje', respuesta);
-          //enviar al sitio interno
           this.$router.push(`/sitioInterno/${respuesta.id}`);
         } else {
           this.mostrarMensaje(respuesta);

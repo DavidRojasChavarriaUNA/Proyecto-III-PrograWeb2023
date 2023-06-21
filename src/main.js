@@ -13,6 +13,7 @@ import PrimeVue from 'primevue/config'
 import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
 import Password from 'primevue/password'
+import Message from 'primevue/message'
 
 import SitioInterno from './sitioInterno/App.vue'
 
@@ -78,5 +79,6 @@ app.use(PrimeVue);
 app.component('InputText', InputText);
 app.component('Button', Button);
 app.component('Password', Password);
+app.component('Message', Message);
 
 app.mount('#app')
