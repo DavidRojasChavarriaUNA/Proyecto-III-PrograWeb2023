@@ -1,39 +1,36 @@
 <template>
-    <div class="col-md-3 border p-5 Opcion">
+    <div class="col-md-3 border p-5">
         <input type="hidden" :value="opcion.id" />
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <label class="form-label text-primary  mt-2">Seleccionar imagen:</label>
-                <img v-if="opcion.rutaImagen" :src="opcion.rutaImagen" :id="`img${opcion.posicion}`"
-                    class="imgChooser img-polaroid profile-img img-thumbnail" />
-                <img v-else src="/assets/imagenes/SeleccionarImagen.png" :id="`img${opcion.posicion}`"
-                    class="imgChooser img-polaroid profile-img img-thumbnail" />
-                <input type="hidden" v-model="opcion.rutaImagen" :id="`rutaImagen${opcion.posicion}`" />
-                <input class="form-control form-control-sm" type="file" accept="image/png, image/jpeg" AutofileChooser
-                    :ImgTagIdToDisplay="`img${opcion.posicion}`"
-                    :InputTagIdToStoreBase64Img="`rutaImagen${opcion.posicion}`" style="display:none;"
-                    :id="`imgChooser${opcion.posicion}`">
-            </div>
-
-            <div class="col-md-12  text-center">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <label class="form-label text-primary  mt-2">Nombre:</label>
-                        <input class="form-control" placeholder="Ingrese el nombre" v-model="opcion.nombre" />
-                        <label class="form-label text-primary  mt-2">Descripción:</label>
-                        <textarea rows="10" class="form-control fw-light" placeholder="Ingrese la descripción"
-                            v-model="opcion.descripcion"></textarea>
-                    </div>
+        <Card>
+            <template #content>
+                <div class="flex align-items-center justify-content-center">
+                    <label class="form-label text-primary  mt-2">Seleccionar imagen:</label>
+                    <img v-if="opcion.rutaImagen" :src="opcion.rutaImagen" :id="`img${opcion.posicion}`"
+                        class="imgChooser img-polaroid profile-img img-thumbnail" />
+                    <img v-else src="/assets/imagenes/SeleccionarImagen.png" :id="`img${opcion.posicion}`"
+                        class="imgChooser img-polaroid profile-img img-thumbnail" />
+                    <input type="hidden" v-model="opcion.rutaImagen" :id="`rutaImagen${opcion.posicion}`" />
+                    <input class="form-control form-control-sm" type="file" accept="image/png, image/jpeg"
+                        AutofileChooser :ImgTagIdToDisplay="`img${opcion.posicion}`"
+                        :InputTagIdToStoreBase64Img="`rutaImagen${opcion.posicion}`" style="display:none;"
+                        :id="`imgChooser${opcion.posicion}`">
                 </div>
-            </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col-md-12  text-center">
-                <button type="button" class="btn btn-danger width-100" data-bs-toggle="modal"
-                    :data-bs-target="`#modalEliminar${opcion.posicion}`">Eliminar</button>
-            </div>
-        </div>
-        <modal-eliminar-vue v-bind:posicion="opcion.posicion" v-on:notificarEliminarOpcion="notificarEliminarOpcion"></modal-eliminar-vue>
+                <div class="flex align-items-center justify-content-center">
+                                            <label class="form-label text-primary  mt-2">Nombre:</label>
+                        <InputText type="text" v-model="opcion.nombre" placeholder="Ingrese el nombre"/>
+                        <label class="form-label text-primary  mt-2">Descripción:</label>
+                        <Textarea v-model="opcion.descripcion" rows="10" placeholder="Ingrese la descripción" />
+                </div>
+            </template>
+            <template #footer>
+                <div class="flex align-items-center justify-content-center">
+                    <button type="button" class="btn btn-danger width-100" data-bs-toggle="modal"
+                        :data-bs-target="`#modalEliminar${opcion.posicion}`">Eliminar</button>
+                </div>
+            </template>
+        </Card>
+        <modal-eliminar-vue v-bind:posicion="opcion.posicion" v-on:notificarEliminarOpcion="notificarEliminarOpcion">
+        </modal-eliminar-vue>
     </div>
 </template>
 
@@ -44,7 +41,7 @@
 
     export default {
         props: ['opcion'],
-        components:{
+        components: {
             modalEliminarVue
         },
         data() {
@@ -61,7 +58,7 @@
                 const modalEliminar = bootstrap.Modal.getInstance(modalEliminarElem);
                 modalEliminar.hide();
             },
-            notificarEliminarOpcion(){
+            notificarEliminarOpcion() {
                 this.cerrarModalEliminar();
                 this.$emit('eliminarOpcion', this.opcion.id);
             }

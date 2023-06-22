@@ -1,20 +1,17 @@
 <template>
-    <div class="col-md-3 border p-5 NuevaOpcion">
-        <div class="row width-100">
-            <div class="col-md-12  text-center">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <i class="bi bi-plus-circle-fill text-success fs-1"></i>
-                    </div>
+    <div class="col-md-3 border p-5">
+        <Card>
+            <template #header>
+                <div class="flex align-items-center justify-content-center">
+                <i class="pi pi-plus-circle text-green-600" style="font-size: 2.5rem !important;"></i>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <button type="button" class="btn btn-success width-100"
-                            v-on:click="agregarNuevaOpcion">Nuevo</button>
-                    </div>
+            </template>
+            <template #content>
+                <div class="flex align-items-center justify-content-center">
+                    <Button label="Nuevo" severity="success" v-on:click="agregarNuevaOpcion"></Button>
                 </div>
-            </div>
-        </div>
+            </template>
+        </Card>
     </div>
 </template>
 

@@ -6,28 +6,22 @@
                     <h1 class="text-center">Crear votación</h1>
                     <input type="hidden" v-model="votacion.id" name="id" required>
                     <input type="hidden" v-model="votacion.idEstado" name="idEstado" required>
-                    <!-- <input type="file" name="my_file"> -->
                     <div class="row mb-3">
                         <div class="col-12">
                             <label class="form-label fs-3 mt-2">Titulo votación:</label>
-                            <input type="text" class="form-control" v-model="votacion.descripcion"
-                                placeholder="Ingrese el titulo de la votación" name="descripcion">
+                            <InputText type="text" v-model="votacion.descripcion" placeholder="Ingrese el titulo de la votación" />
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-12">
                             <label class="form-label fs-3 mt-2">Fecha y hora de apertura:</label>
-                            <input type="datetime-local" class="form-control" v-model="votacion.fechaHoraInicio"
-                                placeholder="ingrese una fecha y hora de inicio, en formato YYYY-MM-DD HH:MM:SS.SSS"
-                                name="fechaHoraInicio">
+                            <Calendar v-model="votacion.fechaHoraInicio" :manualInput="true" dateFormat="dd/mm/yy" placeholder="dd/mm/yyyy hh:mm am|pm" showIcon showTime hourFormat="12" />
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-12">
                             <label class="form-label fs-3 mt-2">Fecha y hora de cierre</label>
-                            <input type="datetime-local" class="form-control" v-model="votacion.fechaHoraFin"
-                                placeholder="ingrese una fecha y hora de cierre, en formato YYYY-MM-DD HH:MM:SS.SSS"
-                                name="fechaHoraFin">
+                            <Calendar v-model="votacion.fechaHoraFin" :manualInput="true" dateFormat="dd/mm/yy" showIcon showTime hourFormat="12" placeholder="dd/mm/yyyy hh:mm am|pm" />
                         </div>
                     </div>
                     <h3 class="text-secondary mt-3 mb-3">Listado de opciones</h3>
@@ -44,9 +38,7 @@
                             <new-option-vue v-on:agregarNuevaOpcion="agregarNuevaOpcion"></new-option-vue>
                         </div>
                         <div class="d-grid gap-2 col-6 mx-auto mt-5">
-                            <button type="button" class="btn btn-outline-success" id="GuardadoExitosoBtn" v-on:click="registrarNuevaVotacion">
-                                Guardar
-                            </button>
+                            <Button label="Guardar" severity="success" outlined v-on:click="registrarNuevaVotacion"></Button>
                         </div>
                     </div>
                 </form>

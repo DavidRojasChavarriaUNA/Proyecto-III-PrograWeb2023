@@ -14,6 +14,13 @@ import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
 import Password from 'primevue/password'
 import Message from 'primevue/message'
+import DataTable from 'primevue/datatable'
+import Column from 'primevue/column'
+import ColumnGroup from 'primevue/columngroup'
+import Row from 'primevue/row'
+import Calendar from 'primevue/calendar'
+import Card from 'primevue/card'
+import Textarea from 'primevue/textarea'
 
 import SitioInterno from './sitioInterno/App.vue'
 
@@ -80,5 +87,12 @@ app.component('InputText', InputText);
 app.component('Button', Button);
 app.component('Password', Password);
 app.component('Message', Message);
+app.component('DataTable', DataTable);
+app.component('Column', Column);
+app.component('ColumnGroup', ColumnGroup);
+app.component('Row', Row);
+app.component('Calendar', Calendar);
+app.component('Card', Card);
+app.component('Textarea', Textarea);
 
 app.mount('#app')
