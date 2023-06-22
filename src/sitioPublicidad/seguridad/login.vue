@@ -9,14 +9,13 @@
               Bienvenido de vuelta!
             </h3>
           </div>
-          <div class="card-body">
+          <div class="p-card-body">
             <form class="form-stacked m-3">
               <template v-if="message">
                 <div>
                   <message severity="error">{{ message }}</message>
                 </div>
               </template>
-
               <label for="email">Correo electrónico</label>
               <div class="p-inputgroup flex-1 mb-3 mt-2">
                 <span class="p-inputgroup-addon">
@@ -68,7 +67,7 @@ export default {
       this.message = `${mensaje.Code} - ${mensaje.message}`;
     },
     async loginUser(u) {
-      console.log("llega",u); // kslzkdl
+      console.log(u);
       try {
 
         const respuestaHttp = await fetch(`${urlBase}/seguridad/autenticate`,
