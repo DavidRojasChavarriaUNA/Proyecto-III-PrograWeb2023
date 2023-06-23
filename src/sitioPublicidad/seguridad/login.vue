@@ -1,6 +1,6 @@
 <template>
   <main>
-    <article id="registro" class="flex flex-wrap align-items-center justify-content-center">
+    <article id="login" class="flex flex-wrap align-items-center justify-content-center">
       <div class="p-jc-center p-ai-center">
         <div class="p-card p-p-2 mt-4 w-28rem">
           <div class="p-card-title">
@@ -21,14 +21,14 @@
                 <span class="p-inputgroup-addon">
                   <i class="pi pi-envelope"></i>
                 </span>
-                <InputText class=" " id="email" type="email" name="email" v-model="user.email" required />
+                <InputText class=" " id="email" type="email" name="email" v-model="user.email" maxlength=100 required />
               </div>
               <label for="password">Contraseña</label>
               <div class="p-inputgroup flex-1 mt-2">
                 <span class="p-inputgroup-addon">
                   <i class="pi pi-lock"></i>
                 </span>
-                <Password id="password" name="password" v-model="user.password" required />
+                <Password id="password" name="password" v-model="user.password" maxlength=20 required />
               </div>
 
               <div class="field text-center mt-4">
