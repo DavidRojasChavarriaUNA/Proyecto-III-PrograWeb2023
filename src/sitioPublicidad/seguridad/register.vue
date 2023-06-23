@@ -1,52 +1,51 @@
 <template>
-  <main class="uk-container">
-    <article id="registro" class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade"
-      uk-height-viewport="expand: true">
-      <div class="uk-container">
-        <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
-          <div class="uk-width-1-1@m">
-            <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-              <h3 class="uk-card-title uk-text-center">Bienvenido a bordo!</h3>
-              <form>
-                <div class="uk-margin">
-                  <label class="uk-form-label" for="form-stacked-text">Nombre</label>
-                  <div class="uk-inline uk-width-1-1">
-                    <span for="name" class="uk-form-icon" uk-icon="icon: info"></span>
-                    <input class="uk-input uk-form-large" type="text" name="name" maxlength=30 v-model="user.name"
-                      required />
-                  </div>
+  <main>
+    <article id="registro" class="flex flex-wrap align-items-center justify-content-center">
+      <div class="p-jc-center p-ai-center">
+        <div class="p-card p-p-2 mb-7 w-28rem">
+          <div class="p-card-title">
+            <br />
+            <h3 class="text-center text-black-alpha-80 font-normal">Bienvenido a bordo!</h3>
+          </div>
+          <div class="p-card-body">
+            <form class="form-stacked m-3">
+              <template v-if="message">
+                <div>
+                  <message severity="error">{{ message }}</message>
                 </div>
-                <div class="uk-margin">
-                  <label class="uk-form-label" for="form-stacked-text">Correo Electrónico</label>
-                  <div class="uk-inline uk-width-1-1">
-                    <span for="email" class="uk-form-icon" uk-icon="icon: mail"></span>
-                    <input class="uk-input uk-form-large" type="email" name="email" maxlength=100 v-model="user.email"
-                      required />
-                  </div>
-                </div>
-                <div class="uk-margin">
-                  <label class="uk-form-label" for="form-stacked-text">Usuario</label>
-                  <div class="uk-inline uk-width-1-1">
-                    <span for="user" class="uk-form-icon" uk-icon="icon: user"></span>
-                    <input class="uk-input uk-form-large" type="text" name="user" maxlength=20 v-model="user.user"
-                      required />
-                  </div>
-                </div>
-                <div class="uk-margin">
-                  <label class="uk-form-label" for="form-stacked-text">Contraseña</label>
-                  <div class="uk-inline uk-width-1-1">
-                    <span for="password" class="uk-form-icon" uk-icon="icon: lock"></span>
-                    <input class="uk-input uk-form-large" type="password" name="password" maxlength=20
-                      v-model="user.password" required />
-                  </div>
-                </div>
-                <div class="uk-margin">
-                  <button class="uk-button uk-button-primary uk-button-large uk-width-1-1" v-on:click="createUser(user)">
-                    Registrar
-                  </button>
-                </div>
-              </form>
-            </div>
+              </template>
+              <label for="name">Nombre</label>
+              <div class="p-inputgroup flex-1 mb-3 mt-2">
+                <span class="p-inputgroup-addon">
+                  <i class="pi pi-info"></i>
+                </span>
+                <InputText id="name" type="text" name="name" v-model="user.name" maxlength=30 required />
+              </div>
+              <label for="email">Correo Electrónico</label>
+              <div class="p-inputgroup flex-1 mb-3 mt-2">
+                <span class="p-inputgroup-addon">
+                  <i class="pi pi-envelope"></i>
+                </span>
+                <InputText id="email" type="email" name="email" v-model="user.email" maxlength=100 required />
+              </div>
+              <label for="user">Usuario</label>
+              <div class="p-inputgroup flex-1 mb-3 mt-2">
+                <span class="p-inputgroup-addon">
+                  <i class="pi pi-user"></i>
+                </span>
+                <InputText id="user" type="text" name="user" v-model="user.user" maxlength=20 required />
+              </div>
+              <label for="password">Contraseña</label>
+              <div class="p-inputgroup flex-1 mt-2">
+                <span class="p-inputgroup-addon">
+                  <i class="pi pi-lock"></i>
+                </span>
+                <Password id="password" name="password" v-model="user.password" maxlength=20 required />
+              </div>
+              <div class="field text-center mt-4">
+                <Button size="normal" label="Registrar" class="p-button-block" @click="createUser(user)" />
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -63,14 +62,18 @@ const urlBase = import.meta.env.VITE_BASE_URL;
 export default {
   data() {
     return {
-      user: { 'name': '', 'email': '', 'user': '', 'password': '' }
+      user: { 'name': '', 'email': '', 'user': '', 'password': '' },
+      message: null
     }
   },
   components: {
 
   },
   methods: {
-    async createUser(u) { 
+    mostrarMensaje(mensaje) {
+      this.message = `${mensaje.Code} - ${mensaje.message}`;
+    },
+    async createUser(u) {
       console.log(u);
       try {
         const respuestaHttp = await fetch(`${urlBase}/seguridad/register`,
@@ -82,17 +85,16 @@ export default {
             method: 'POST',
             body: JSON.stringify(u)
           });
-          console.log(respuestaHttp);
+        console.log(respuestaHttp);
         const respuesta = await respuestaHttp.json();
         if (respuesta && (respuesta.Code == Codigos.CodeSuccess)) {
-          //enviar al login
           router.push('/login');
         } else {
-          this.$emit('mostrarMensaje', respuesta);
+          this.mostrarMensaje(respuesta);
         }
       } catch (error) {
         console.log(error);
-        this.$emit('mostrarMensaje', { Code: Codigos.CodeError, message: "Ocurrió un error al registrar el usuario" });
+        this.mostrarMensaje({ Code: Codigos.CodeError, message: "Ocurrió un error al registrar el usuario" });
       }
     }
   }
