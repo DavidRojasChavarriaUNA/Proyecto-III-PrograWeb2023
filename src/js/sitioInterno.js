@@ -1,6 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
+/*import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap'
-import 'bootstrap-icons/font/bootstrap-icons.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'*/
 import '../css/siteInterno.css'
 
 const None = -1;

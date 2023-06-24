@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 
-import 'primevue/resources/themes/saga-blue/theme.css'
+import 'primevue/resources/themes/bootstrap4-dark-blue/theme.css'
 import 'primevue/resources/primevue.min.css'
 
 import 'primeflex/primeflex.css'
@@ -21,6 +21,7 @@ import Row from 'primevue/row'
 import Calendar from 'primevue/calendar'
 import Card from 'primevue/card'
 import Textarea from 'primevue/textarea'
+import Menubar from 'primevue/menubar'
 
 import SitioInterno from './sitioInterno/App.vue'
 
@@ -94,5 +95,6 @@ app.component('Row', Row);
 app.component('Calendar', Calendar);
 app.component('Card', Card);
 app.component('Textarea', Textarea);
+app.component('Menubar', Menubar);
 
 app.mount('#app')

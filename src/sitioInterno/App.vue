@@ -50,13 +50,11 @@
         document.querySelectorAll("footer").forEach(f => f.remove());
         //se determina si es el sitio interno la pantalla de ingreso, para acomodar el footer en su posición
         if (this.$route.fullPath.toLowerCase().includes('/sitiointerno')) {
-          body.classList.add('d-flex', 'flex-column', 'min-vh-100');
-          footer.classList.add('mt-auto');
+          footer.classList.add('fixed', 'bottom-0');
           body.appendChild(footer);
         }
         else{
-          body.classList.remove('d-flex', 'flex-column', 'min-vh-100');
-          footer.classList.remove('mt-auto');
+          footer.classList.remove('fixed', 'bottom-0');
           document.querySelector("#app").appendChild(footer);
         }
       },
