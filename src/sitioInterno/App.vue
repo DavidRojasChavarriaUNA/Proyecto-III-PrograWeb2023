@@ -1,10 +1,14 @@
 <template>
   <header-sitio-interno v-bind:usuario="usuario"></header-sitio-interno>
-  <main id="principal" class="container">
+  <main id="principal" class="grid">
+    <div class="col-12 sm:col-1 lg:col-2"></div>
+    <div class="col-12 sm:col-10 lg:col-8">
       <section id="toastMensajes">
         <toast-alert v-model="respuestaServicio" v-bind:respuestaServicio="respuestaServicio"></toast-alert>
       </section>
-    <router-view v-on:mostrarMensaje="mostrarMensaje"></router-view>
+      <router-view v-on:mostrarMensaje="mostrarMensaje"></router-view>
+    </div>
+    <div class="col-12 sm:col-1 lg:col-2"></div>
   </main>
   <footer-sitio-interno></footer-sitio-interno>
 </template>

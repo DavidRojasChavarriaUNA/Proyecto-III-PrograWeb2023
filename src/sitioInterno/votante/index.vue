@@ -1,10 +1,6 @@
 <template>
-    <h2 class="text-center">Listado de votaciones pendientes</h2>
-    <div class="row">
-        <div class="col-12 text-end" style="height: 38px;">
-        </div>
-    </div>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <h2 class="text-center text-black-alpha-90	">Listado de votaciones pendientes</h2>
+    <div class="pt-3 pb-3 text-right">
         <Button label="Consultar" severity="Primary" icon="pi pi-search" v-on:click="obtenerVotacionesPendientes"></Button>
     </div>
     <div class="table-responsive">
