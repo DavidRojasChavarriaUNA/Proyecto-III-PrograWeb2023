@@ -7,3 +7,7 @@
 .p-menubar .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text{
     color: white !important;
 }
+
+.w-calc{
+    width: Calc(100% - 16px);
+}

@@ -1,5 +1,5 @@
 <template>
-    <footer class="w-full bg-gray-900 p-1">
+    <footer class="bg-gray-900 p-1">
         <div class="p-2 text-center" >
             <img id="logoFooter" src="/assets/imagenes/logo.png" class="mx-auto d-block" />
         </div>

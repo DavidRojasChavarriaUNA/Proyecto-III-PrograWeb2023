@@ -3,7 +3,7 @@
         <article>
             <section>
                 <form>
-                    <h2 class="text-center text-black-alpha-90">Crear votación</h2>
+                    <h2 class="text-center">Crear votación</h2>
                     <input type="hidden" v-model="votacion.id" name="id" required>
                     <input type="hidden" v-model="votacion.idEstado" name="idEstado" required>
                     <div class="row mb-3">

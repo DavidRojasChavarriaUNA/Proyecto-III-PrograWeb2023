@@ -54,11 +54,11 @@
         document.querySelectorAll("footer").forEach(f => f.remove());
         //se determina si es el sitio interno la pantalla de ingreso, para acomodar el footer en su posición
         if (this.$route.fullPath.toLowerCase().includes('/sitiointerno')) {
-          footer.classList.add('fixed', 'bottom-0');
+          footer.classList.add('w-calc', 'fixed', 'bottom-0');
           body.appendChild(footer);
         }
         else{
-          footer.classList.remove('fixed', 'bottom-0');
+          footer.classList.remove('w-calc', 'fixed', 'bottom-0');
           document.querySelector("#app").appendChild(footer);
         }
       },

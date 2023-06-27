@@ -12,7 +12,7 @@
 <script>
 
     import {v4 as uuidv4} from 'uuid';
-import { Codigos } from '../js/sitioInterno';
+    import { Codigos } from '../js/sitioInterno';
 
     export default {
         props: ['respuestaServicio'],
@@ -23,7 +23,8 @@ import { Codigos } from '../js/sitioInterno';
         },
         updated() {
             if(!this.respuestaServicio.NoMostrarMas && !this.mensajes.includes(this.respuestaServicio)){
-                this.respuestaServicio.id = uuidv4();
+                const idNotificacion = uuidv4();
+                this.respuestaServicio.id = idNotificacion;
                 this.respuestaServicio.NoMostrarMas = true;
                 switch(this.respuestaServicio.Code){
                     case Codigos.CodeSuccess: this.respuestaServicio.severity="success"; break;
@@ -31,6 +32,10 @@ import { Codigos } from '../js/sitioInterno';
                     default: this.respuestaServicio.severity="info"; break;
                 }
                 this.mensajes.push(this.respuestaServicio);
+                const vm = this;
+                setTimeout(function(){
+                    vm.ocultar(idNotificacion);
+                },3000);
             }
         },
         methods: {

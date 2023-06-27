@@ -22,6 +22,9 @@ import Calendar from 'primevue/calendar'
 import Card from 'primevue/card'
 import Textarea from 'primevue/textarea'
 import Menubar from 'primevue/menubar'
+import Image from 'primevue/image'
+import RadioButton from 'primevue/radiobutton'
+import Dialog from 'primevue/dialog'
 
 import SitioInterno from './sitioInterno/App.vue'
 
@@ -96,5 +99,8 @@ app.component('Calendar', Calendar);
 app.component('Card', Card);
 app.component('Textarea', Textarea);
 app.component('Menubar', Menubar);
+app.component('Image', Image);
+app.component('RadioButton', RadioButton);
+app.component('Dialog', Dialog);
 
 app.mount('#app')

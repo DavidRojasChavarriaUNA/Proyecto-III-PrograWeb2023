@@ -1,5 +1,5 @@
 <template>
-    <h2 class="text-center text-black-alpha-90	">Listado de votaciones activas y finalizadas</h2>
+    <h2 class="text-center">Listado de votaciones activas y finalizadas</h2>
     <div class="pt-3 pb-3 text-right">
         <Button label="Consultar" icon="pi pi-search" severity="Primary" v-on:click="obtenerVotacionesActivasFinalizadas"></Button>
     </div>
