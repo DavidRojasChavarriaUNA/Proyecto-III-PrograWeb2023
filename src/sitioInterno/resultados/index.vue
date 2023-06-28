@@ -10,9 +10,11 @@
             <Column field="fechaHoraInicio" header="Apertura"></Column>
             <Column field="fechaHoraFin" header="Cierre"></Column>
             <Column header="Acción">
-                <template #body="slotProps">
-                    <router-link :to="`/resultados/${idUsuario}/${slotProps.data.id}`" class="text-success accion"
-                        title="Ver resultados"><i class="pi pi-eye"></i></router-link>
+                <template #body="slotProps">               
+                    <router-link :to="`/resultados/${idUsuario}/${slotProps.data.id}`" class="accion"
+                        title="Ver resultados">
+                        <Button icon="pi pi-eye" severity="success" text rounded aria-label="Ver resultados" />
+                    </router-link>
                 </template>
             </Column>
         </DataTable>
