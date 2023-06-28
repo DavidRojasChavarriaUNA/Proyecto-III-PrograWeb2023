@@ -4,22 +4,19 @@
         <section class="m-3 p-3">
             <h2 class="text-center">{{votacionSeleccionada.descripcion}}</h2>
         </section>
-        <div class="container">
-            <div class="row bg-white">
+        <div>
+            <div class="grid grid-nogutter">
                 <option-vote v-for="opcion in votacionSeleccionada.opciones" v-bind:key="opcion.id"
                     v-bind:opcion="opcion" v-on:seleccionarOpcion="seleccionarOpcion">
                 </option-vote>
             </div>
-            <div class="d-grid gap-2 col-6 mx-auto mt-5">
-                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                    data-bs-target="#modalConfirmarVotacion">
-                    Confirmar Votación
-                </button>
+            <div class="text-center mt-5">
+                <Button label="Confirmar Votación" severity="success" outlined v-on:click="mostrarModalDialog"></Button>
             </div>
         </div>
         <modal-confirmar-votacion v-if="opcionSeleccionada" v-bind:opcionSeleccionada="opcionSeleccionada"
-            v-on:realizarVotacion="realizarVotacion"></modal-confirmar-votacion>
-        <modal-debe-seleccionar-una-opcion v-else></modal-debe-seleccionar-una-opcion>
+            v-on:realizarVotacion="realizarVotacion" v-bind:mostrarModal="mostrarModal" v-on:OcultarModalDialog="OcultarModalDialog"></modal-confirmar-votacion>
+        <modal-debe-seleccionar-una-opcion v-else v-bind:mostrarModal="mostrarModal" v-on:OcultarModalDialog="OcultarModalDialog"></modal-debe-seleccionar-una-opcion>
     </article>
 </template>
 
@@ -28,7 +25,6 @@
     import optionVote from './option.vue';
     import modalConfirmarVotacion from './modalConfirmarVotacion.vue';
     import modalDebeSeleccionarUnaOpcion from './modalDebeSeleccionarUnaOpcion.vue';
-    import * as bootstrap from 'bootstrap';
 
     const urlBase = import.meta.env.VITE_BASE_URL;
 
@@ -39,7 +35,8 @@
                 votacionSeleccionada: {
                     id: 0
                 },
-                opcionSeleccionada: null
+                opcionSeleccionada: null,
+                mostrarModal: false
             }
         },
         components: {
@@ -52,6 +49,12 @@
             this.obtenerVotacionSeleccionada();
         },
         methods: {
+            mostrarModalDialog(){
+                this.mostrarModal = true;
+            },
+            OcultarModalDialog(){
+                this.mostrarModal = false;
+            },
             InicializarData() {
                 this.idUsuario = this.$route.params.idUsuario;
                 this.votacionSeleccionada.id = this.$route.params.idVotacion;
@@ -105,9 +108,7 @@
                 }
             },
             cerrarModalConfirmacionVoto() {
-                const modalConfirmarVotacionElem = document.querySelector('#modalConfirmarVotacion');
-                const modalConfirmarVotacion = bootstrap.Modal.getInstance(modalConfirmarVotacionElem);
-                modalConfirmarVotacion.hide();
+                this.mostrarModal = false;
             },
             async realizarVotacion() {
                 try {

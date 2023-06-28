@@ -1,43 +1,33 @@
 <template>
     <h2 class="text-center">Listado de votaciones activas y finalizadas</h2>
-    <div class="row">
-        <div class="col-12 text-end" style="height: 38px;">
-        </div>
-    </div>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary" v-on:click="obtenerVotacionesActivasFinalizadas">Consultar</button>
+    <div class="pt-3 pb-3 text-right">
+        <Button label="Consultar" icon="pi pi-search" severity="Primary" v-on:click="obtenerVotacionesActivasFinalizadas"></Button>
     </div>
     <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Descripción</th>
-                    <th>Estado</th>
-                    <th>Apertura</th>
-                    <th>Cierre</th>
-                    <th>Acción</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="votacion in votacionesActivasFinalizadas" :key="votacion.id">
-                    <td>{{votacion.descripcion}}</td>
-                    <td>{{votacion.estado}}</td>
-                    <td>{{votacion.fechaHoraInicio}}</td>
-                    <td>{{votacion.fechaHoraFin}}</td>
-                    <td>
-                        <router-link :to="`/resultados/${idUsuario}/${votacion.id}`" class="text-success accion" title="Ver resultados"><i
-                                class="bi bi-eye-fill"></i></router-link>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <DataTable :value="votacionesActivasFinalizadas">
+            <Column field="descripcion" header="Descripción"></Column>
+            <Column field="estado" header="Estado"></Column>
+            <Column field="fechaHoraInicio" header="Apertura"></Column>
+            <Column field="fechaHoraFin" header="Cierre"></Column>
+            <Column header="Acción">
+                <template #body="slotProps">               
+                    <router-link :to="`/resultados/${idUsuario}/${slotProps.data.id}`" class="accion"
+                        title="Ver resultados">
+                        <Button icon="pi pi-eye" severity="success" text rounded aria-label="Ver resultados" />
+                    </router-link>
+                </template>
+            </Column>
+        </DataTable>
     </div>
 </template>
 
 <script>
-    import {Codigos} from '../../js/sitioInterno'
+    import {
+        Codigos
+    } from '../../js/sitioInterno'
 
-    const urlBase = import.meta.env.VITE_BASE_URL;
+    const urlBase =
+        import.meta.env.VITE_BASE_URL;
 
     export default {
         data() {
@@ -64,13 +54,19 @@
                     const datosVotaciones = await respuestaHttp.json();
                     if (datosVotaciones && (datosVotaciones.Code == Codigos.CodeSuccess)) {
                         this.votacionesActivasFinalizadas = datosVotaciones.votaciones;
-                        this.$emit('mostrarMensaje',{Code: Codigos.CodeSuccess, message: "Se ha obtenido los datos más recientes"});
+                        this.$emit('mostrarMensaje', {
+                            Code: Codigos.CodeSuccess,
+                            message: "Se ha obtenido los datos más recientes"
+                        });
                     } else {
-                        this.$emit('mostrarMensaje',datosVotaciones);
+                        this.$emit('mostrarMensaje', datosVotaciones);
                     }
                 } catch (error) {
                     console.log(error);
-                    this.$emit('mostrarMensaje',{Code: Codigos.CodeError, message: "Ocurrió un error al obtener las votaciones pendientes del usuario"});
+                    this.$emit('mostrarMensaje', {
+                        Code: Codigos.CodeError,
+                        message: "Ocurrió un error al obtener las votaciones pendientes del usuario"
+                    });
                 }
             }
         }

@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 
-import 'primevue/resources/themes/saga-blue/theme.css'
+import 'primevue/resources/themes/bootstrap4-dark-blue/theme.css'
 import 'primevue/resources/primevue.min.css'
 
 import 'primeflex/primeflex.css'
@@ -14,6 +14,17 @@ import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
 import Password from 'primevue/password'
 import Message from 'primevue/message'
+import DataTable from 'primevue/datatable'
+import Column from 'primevue/column'
+import ColumnGroup from 'primevue/columngroup'
+import Row from 'primevue/row'
+import Calendar from 'primevue/calendar'
+import Card from 'primevue/card'
+import Textarea from 'primevue/textarea'
+import Menubar from 'primevue/menubar'
+import Image from 'primevue/image'
+import RadioButton from 'primevue/radiobutton'
+import Dialog from 'primevue/dialog'
 
 import SitioInterno from './sitioInterno/App.vue'
 
@@ -80,5 +91,16 @@ app.component('InputText', InputText);
 app.component('Button', Button);
 app.component('Password', Password);
 app.component('Message', Message);
+app.component('DataTable', DataTable);
+app.component('Column', Column);
+app.component('ColumnGroup', ColumnGroup);
+app.component('Row', Row);
+app.component('Calendar', Calendar);
+app.component('Card', Card);
+app.component('Textarea', Textarea);
+app.component('Menubar', Menubar);
+app.component('Image', Image);
+app.component('RadioButton', RadioButton);
+app.component('Dialog', Dialog);
 
 app.mount('#app')

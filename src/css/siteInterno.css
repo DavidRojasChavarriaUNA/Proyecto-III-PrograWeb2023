@@ -3,40 +3,11 @@
     max-width: 120px;
 }
 
-#principal {
-    min-height: 300px;
-    margin-top: 88px;
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text,
+.p-menubar .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text{
+    color: white !important;
 }
 
-.accion:hover,
-.imgChooser:hover {
-    cursor: pointer;
-}
-
-.bi:hover {
-    font-size: 1.05rem;
-}
-
-.width-100 {
-    width: 100%;
-}
-
-.display-none {
-    display: none !important;
-}
-
-
-#btnDesactivar3,
-#btnDesactivar1,
-#btn2,
-#btn3,
-#btnResultados1,
-#btnResultados2 {
-    display: none;
-}
-
-.bg-toast{
-    color: #141619;
-    background-color: #d3d3d4;
-    border-color: #bcbebf;
+.w-calc{
+    width: Calc(100% - 16px);
 }

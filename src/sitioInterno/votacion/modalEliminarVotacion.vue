@@ -1,32 +1,23 @@
 <template>
     <!-- Modal Eliminar-->
-    
-    <div class="modal fade" :id="`modalEliminar${id}`" tabindex="-1" aria-labelledby="labelEliminar" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="labelEliminar">Eliminar</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ¿Desea eliminar la votación seleccionada y sus opciones?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button id="AccionEliminar" type="button" class="btn btn-danger" @click="notificarEliminar">Eliminar</button>
-               
-            </div>
-        </div>
-    </div>
-</div>
+    <Dialog :visible="mostrarModalEliminarVotacion" header="Eliminar" modal @update:visible="cerrarModalEliminar">
+        <p>¿Desea eliminar la votación seleccionada y sus opciones?</p>
+        <template #footer>
+            <Button label="Cerrar" severity="secondary" @click="cerrarModalEliminar" />
+            <Button label="Eliminar" severity="danger" outlined @click="notificarEliminar" />
+        </template>
+    </Dialog>
 </template>
 
 <script>
     export default {
-        props:['id'],
-        methods:{
-            notificarEliminar(){
+        props: ['id', 'mostrarModalEliminarVotacion'],
+        methods: {
+            notificarEliminar() {
                 this.$emit('notificarEliminar');
+            },
+            cerrarModalEliminar() {
+                this.$emit('cerrarModalEliminar', this.id);
             }
         }
     }

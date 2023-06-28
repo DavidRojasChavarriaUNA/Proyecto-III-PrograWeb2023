@@ -1,31 +1,24 @@
 <template>
-   <!-- Modal Desactivar-->
-<div class="modal fade" :id="`modalDesactivar${id}`"  tabindex="-1" aria-labelledby="labelDesactivar" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="labelDesactivar">Desactivar</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ¿Desea desactivar la votación seleccionada?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button id="AccionDesactivar" type="button" class="btn btn-danger" @click="notificarDesactivar">Desactivar</button>
-               
-            </div>
-        </div>
-    </div>
-</div>
+    <!-- Modal Desactivar-->
+    <Dialog :visible="mostrarModalDesactivarVotacion" header="Desactivar" modal
+        @update:visible="cerrarModalDesactivar">
+        <p>¿Desea desactivar la votación seleccionada?</p>
+        <template #footer>
+            <Button label="Cerrar" severity="secondary" @click="cerrarModalDesactivar" />
+            <Button label="Desactivar" severity="warning" outlined @click="notificarDesactivar" />
+        </template>
+    </Dialog>
 </template>
 
 <script>
     export default {
-        props:['id'],
-        methods:{
-            notificarDesactivar(){
+        props: ['id', 'mostrarModalDesactivarVotacion'],
+        methods: {
+            notificarDesactivar() {
                 this.$emit('notificarDesactivar');
+            },
+            cerrarModalDesactivar() {
+                this.$emit('cerrarModalDesactivar', this.id);
             }
         }
     }

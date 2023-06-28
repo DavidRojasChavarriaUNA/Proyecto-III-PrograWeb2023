@@ -1,4 +1,4 @@
-import '../css/SitePublicidad.css'
+//import '../css/SitePublicidad.css'
 
 const CodeSuccess = 0;
 const CodeNotFound = 404;

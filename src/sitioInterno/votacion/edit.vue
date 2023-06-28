@@ -1,63 +1,54 @@
 <template>
-    <section id="NuevoVotacion" class="m-5">
-        <article>
-            <section>
-                <form>
-                    <h1 class="text-center">Editar votación</h1>
-                    <input type="hidden" v-model="votacion.id" name="id" required>
-                    <input type="hidden" v-model="votacion.idEstado" name="idEstado" required>
-                    <!-- <input type="file" name="my_file"> -->
-                    <div class="row mb-3">
-                        <div class="col-12">
-                            <label class="form-label fs-3 mt-2">Titulo votación:</label>
-                            <input type="text" class="form-control" v-model="votacion.descripcion"
-                                placeholder="Ingrese el titulo de la votación" name="descripcion">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-12">
-                            <label class="form-label fs-3 mt-2">Fecha y hora de apertura:</label>
-                            <input type="datetime-local" class="form-control" v-model="votacion.fechaHoraInicio"
-                                placeholder="ingrese una fecha y hora de inicio, en formato YYYY-MM-DD HH:MM:SS.SSS"
-                                name="fechaHoraInicio">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-12">
-                            <label class="form-label fs-3 mt-2">Fecha y hora de cierre</label>
-                            <input type="datetime-local" class="form-control" v-model="votacion.fechaHoraFin"
-                                placeholder="ingrese una fecha y hora de cierre, en formato YYYY-MM-DD HH:MM:SS.SSS"
-                                name="fechaHoraFin">
-                        </div>
-                    </div>
-                    <h3 class="text-secondary mt-3 mb-3">Listado de opciones</h3>
-                    <div class="container">
-                        <div class="row bg-white" id="ListaOpcionesAgregar">
-                            <!-- Listado de opciones -->
-                            <option-vue v-for="(opcion, index) in votacion.opciones" 
-                                        v-bind:key="opcion.id"
-                                        v-bind:opcion="opcion" 
-                                        v-on:eliminarOpcion="eliminarOpcion" 
-                                        v-model="opcion[index]">
-                            </option-vue>
-                            <!-- Nueva opción -->
-                            <new-option-vue v-on:agregarNuevaOpcion="agregarNuevaOpcion"></new-option-vue>
-                        </div>
-                        <div class="d-grid gap-2 col-6 mx-auto mt-5">
-                            <button type="button" class="btn btn-outline-success" id="GuardadoExitosoBtn" v-on:click="modificarVotacion">
-                                Guardar
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </section>
-        </article>
+    <section>
+        <form v-if="votacion !== null">
+            <h1 class="text-center">Editar votación</h1>
+            <input type="hidden" v-model="votacion.id" name="id" required>
+            <input type="hidden" v-model="votacion.idEstado" name="idEstado" required>
+            <div class="formgrid grid mb-3">
+                <div class="field col-12">
+                    <label class="mt-2">Titulo votación:</label>
+                    <InputText type="text" v-model="votacion.descripcion"
+                        class="w-full"
+                        placeholder="Ingrese el titulo de la votación" />
+                </div>
+            </div>
+            <div class="formgrid grid mb-3">
+                <div class="field col-12">
+                    <label class="mt-2">Fecha y hora de apertura:</label>
+                    <Calendar v-model="votacion.fechaHoraInicio" :manualInput="true" dateFormat="dd/mm/yy"
+                        class="w-full"
+                        placeholder="dd/mm/yyyy hh:mm am|pm" showIcon showTime hourFormat="12" />
+                </div>
+            </div>
+            <div class="formgrid grid mb-3">
+                <div class="field col-12">
+                    <label class="mt-2">Fecha y hora de cierre</label>
+                    <Calendar v-model="votacion.fechaHoraFin" :manualInput="true" dateFormat="dd/mm/yy" showIcon
+                        class="w-full"
+                        showTime hourFormat="12" placeholder="dd/mm/yyyy hh:mm am|pm" />
+                </div>
+            </div>
+            <h3 class="text-secondary mt-3 mb-3">Listado de opciones</h3>
+            <div class="">
+                <div class="grid grid-nogutter" id="ListaOpcionesAgregar">
+                    <!-- Listado de opciones -->
+                    <option-vue v-for="(opcion, index) in votacion.opciones" v-bind:key="opcion.id"
+                        v-bind:opcion="opcion" v-on:eliminarOpcion="eliminarOpcion" v-model="opcion[index]">
+                    </option-vue>
+                    <!-- Nueva opción -->
+                    <new-option-vue v-on:agregarNuevaOpcion="agregarNuevaOpcion"></new-option-vue>
+                </div>
+                <div class="text-center mt-5">
+                    <Button label="Guardar" severity="success" outlined v-on:click="modificarVotacion"></Button>
+                </div>
+            </div>
+        </form>
     </section>
 </template>
 
 <script>
-    import { Codigos } from '../../js/sitioInterno';
-    import { v4 as uuidv4 } from 'uuid';
+    import {Codigos, obtenerFechaConFormato, obtenerFechaDesdeFormato} from '../../js/sitioInterno';
+    import {v4 as uuidv4} from 'uuid';
     import newOptionVue from './newOption.vue';
     import optionVue from '../votacion/option.vue';
 
@@ -71,7 +62,7 @@
                 votacion: null,
                 idVotacion: 0,
                 opciones: [],
-                opc:[],
+                opc: [],
             }
         },
         components: {
@@ -102,12 +93,12 @@
                     const datosVotacion = await respuestaHttp.json();
                     console.log(datosVotacion);
                     if (datosVotacion && (datosVotacion.Code == Codigos.CodeSuccess)) {
-                    this.votacion = datosVotacion.votacion;
+                        this.votacion = datosVotacion.votacion;
                         this.opciones = this.votacion['opciones'];
-                        
+
                         this.votacion = null;
                         for (var i = 0; i < this.opciones.length; i++) {
-                            
+
                             this.opc[i] = {
                                 id: this.opciones[i]['id'],
                                 nombre: this.opciones[i]['nombre'],
@@ -122,18 +113,22 @@
                             id: datosVotacion.votacion['id'],
                             idEstado: datosVotacion.votacion['idEstado'],
                             descripcion: datosVotacion.votacion['descripcion'],
-                            fechaHoraInicio: datosVotacion.votacion['fechaHoraInicio'],
-                            fechaHoraFin: datosVotacion.votacion['fechaHoraFin'],
+                            fechaHoraInicio: obtenerFechaDesdeFormato(datosVotacion.votacion['fechaHoraInicio']),
+                            fechaHoraFin: obtenerFechaDesdeFormato(datosVotacion.votacion['fechaHoraFin']),
                             opciones: this.opc,
                             idsOpcionesEliminar: []
                         }
-                        
+
                     } else {
                         this.$emit('mostrarMensaje', datosVotacion);
                     }
                 } catch (error) {
                     console.log(error);
-                    this.$emit('mostrarMensaje', { Code: Codigos.CodeError, message: "Ocurrió un error al obtener la votación", error });
+                    this.$emit('mostrarMensaje', {
+                        Code: Codigos.CodeError,
+                        message: "Ocurrió un error al obtener la votación",
+                        error
+                    });
                 }
             },
             obtenerSiguientePosicion() {
@@ -157,21 +152,27 @@
             agregarNuevaOpcion(mostrarMensaje = false) {
                 this.votacion.opciones.push(this.crearNuevaOpcion());
                 if (mostrarMensaje) {
-                    this.$emit('mostrarMensaje', { Code: Codigos.CodeSuccess, message: "Opción agregada" });
+                    this.$emit('mostrarMensaje', {
+                        Code: Codigos.CodeSuccess,
+                        message: "Opción agregada"
+                    });
                 }
             },
             eliminarOpcion(idOpcion) {
                 const opcion = this.votacion.opciones.find(o => o.id === idOpcion);
-                if(!opcion)
+                if (!opcion)
                     return;
                 this.votacion.opciones = this.votacion.opciones.filter(o => o.id !== idOpcion);
                 this.votacion.opciones.sort((a, b) => a.posicion - b.posicion);
-                if(opcion.opcionNueva === 'No')
+                if (opcion.opcionNueva === 'No')
                     this.votacion.idsOpcionesEliminar.push(idOpcion);
             },
             async modificarVotacion() {
                 try {
                     const url = `${urlBase}/votacion/${this.idVotacion}`;
+
+                    this.votacion.fechaHoraInicio = obtenerFechaConFormato(this.votacion.fechaHoraInicio);
+                    this.votacion.fechaHoraFin = obtenerFechaConFormato(this.votacion.fechaHoraFin);
 
                     const respuestaHttp = await fetch(url, {
                         headers: {
@@ -188,6 +189,8 @@
                     }
                 } catch (error) {
                     console.log(error);
+                    this.votacion.fechaHoraInicio = obtenerFechaDesdeFormato(this.votacion.fechaHoraInicio);
+                    this.votacion.fechaHoraFin = obtenerFechaDesdeFormato(this.votacion.fechaHoraFin);
                     this.$emit('mostrarMensaje', {
                         Code: Codigos.CodeError,
                         message: "Ocurrió un error al modificar la votación"

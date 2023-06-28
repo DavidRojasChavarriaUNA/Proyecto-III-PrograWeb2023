@@ -1,19 +1,18 @@
 <template>
-    <section class="modal fade" id="modalConfirmarVotacion" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">No ha seleccionado una opción</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Debe seleccionar una opción para realizar la votación.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <Dialog :visible="mostrarModal" header="No ha seleccionado una opción" modal @update:visible="OcultarModalDialog">
+        <p>Debe seleccionar una opción para realizar la votación.</p>
+        <template #footer>
+            <Button label="Cerrar" severity="secondary" @click="OcultarModalDialog"/>
+        </template>
+    </Dialog>
 </template>
+<script>
+    export default {
+        props: ['mostrarModal'],
+        methods: {
+            OcultarModalDialog(){
+                this.$emit('OcultarModalDialog');
+            },
+        }
+    }
+</script>

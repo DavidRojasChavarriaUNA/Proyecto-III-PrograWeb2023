@@ -1,10 +1,14 @@
 <template>
   <header-sitio-interno v-bind:usuario="usuario"></header-sitio-interno>
-  <main id="principal" class="container">
+  <main id="principal" class="grid">
+    <div class="col-12 sm:col-1 lg:col-2"></div>
+    <div class="col-12 sm:col-10 lg:col-8">
       <section id="toastMensajes">
         <toast-alert v-model="respuestaServicio" v-bind:respuestaServicio="respuestaServicio"></toast-alert>
       </section>
-    <router-view v-on:mostrarMensaje="mostrarMensaje"></router-view>
+      <router-view v-on:mostrarMensaje="mostrarMensaje"></router-view>
+    </div>
+    <div class="col-12 sm:col-1 lg:col-2"></div>
   </main>
   <footer-sitio-interno></footer-sitio-interno>
 </template>
@@ -50,13 +54,11 @@
         document.querySelectorAll("footer").forEach(f => f.remove());
         //se determina si es el sitio interno la pantalla de ingreso, para acomodar el footer en su posición
         if (this.$route.fullPath.toLowerCase().includes('/sitiointerno')) {
-          body.classList.add('d-flex', 'flex-column', 'min-vh-100');
-          footer.classList.add('mt-auto');
+          footer.classList.add('w-calc', 'fixed', 'bottom-0');
           body.appendChild(footer);
         }
         else{
-          body.classList.remove('d-flex', 'flex-column', 'min-vh-100');
-          footer.classList.remove('mt-auto');
+          footer.classList.remove('w-calc', 'fixed', 'bottom-0');
           document.querySelector("#app").appendChild(footer);
         }
       },

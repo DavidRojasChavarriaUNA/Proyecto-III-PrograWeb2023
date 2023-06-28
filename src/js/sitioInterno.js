@@ -1,7 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap'
-import 'bootstrap-icons/font/bootstrap-icons.css'
 import '../css/siteInterno.css'
+import {format as format_Date, parse as parse_Date} from 'date-fns';
 
 const None = -1;
 const CodeSuccess = 0;
@@ -26,3 +24,17 @@ export const Codigos = {
     EstadoInactivo,
     OpcionesPorDefecto
 };
+
+export const obtenerFechaConFormato = (fechaString) => {
+    if(!fechaString)
+        return '';
+    const fecha = new Date(fechaString);
+    return format_Date(fecha, 'yyyy-MM-dd HH:mm').replace(' ','T');
+}
+
+export const obtenerFechaDesdeFormato = (fechaString) => {
+    if(!fechaString)
+        return '';
+    fechaString = fechaString.replace('T',' ');
+    return parse_Date(fechaString, 'yyyy-MM-dd HH:mm', new Date());
+}
