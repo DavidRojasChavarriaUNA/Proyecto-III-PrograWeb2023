@@ -1,6 +1,6 @@
 <template>
     <section>
-        <form>
+        <form v-if="votacion !== null">
             <h1 class="text-center">Editar votación</h1>
             <input type="hidden" v-model="votacion.id" name="id" required>
             <input type="hidden" v-model="votacion.idEstado" name="idEstado" required>
@@ -15,14 +15,9 @@
             <div class="formgrid grid mb-3">
                 <div class="field col-12">
                     <label class="mt-2">Fecha y hora de apertura:</label>
-                    <!-- <Calendar v-model="votacion.fechaHoraInicio" :manualInput="true" dateFormat="dd/mm/yy"
+                    <Calendar v-model="votacion.fechaHoraInicio" :manualInput="true" dateFormat="dd/mm/yy"
                         class="w-full"
-                        placeholder="dd/mm/yyyy hh:mm am|pm" showIcon showTime hourFormat="12" /> -->
-                        
-                            <input type="datetime-local" class="form-control" v-model="votacion.fechaHoraInicio"
-                                placeholder="ingrese una fecha y hora de inicio, en formato YYYY-MM-DD HH:MM:SS.SSS"
-                                name="fechaHoraInicio">
-                        {{votacion.fechaHoraInicio}}
+                        placeholder="dd/mm/yyyy hh:mm am|pm" showIcon showTime hourFormat="12" />
                 </div>
             </div>
             <div class="formgrid grid mb-3">
@@ -52,15 +47,13 @@
 </template>
 
 <script>
-    import {Codigos} from '../../js/sitioInterno';
+    import {Codigos, obtenerFechaConFormato, obtenerFechaDesdeFormato} from '../../js/sitioInterno';
     import {v4 as uuidv4} from 'uuid';
     import newOptionVue from './newOption.vue';
     import optionVue from '../votacion/option.vue';
 
-    const urlBase =
-        import.meta.env.VITE_BASE_URL;
-    const RutaImagenDefault =
-        import.meta.env.VITE_BASE_RUTA_IMAGEN_DEFAULT;
+    const urlBase = import.meta.env.VITE_BASE_URL;
+    const RutaImagenDefault = import.meta.env.VITE_BASE_RUTA_IMAGEN_DEFAULT;
 
     export default {
         data() {
@@ -120,8 +113,8 @@
                             id: datosVotacion.votacion['id'],
                             idEstado: datosVotacion.votacion['idEstado'],
                             descripcion: datosVotacion.votacion['descripcion'],
-                            fechaHoraInicio: datosVotacion.votacion['fechaHoraInicio'],
-                            fechaHoraFin: datosVotacion.votacion['fechaHoraFin'],
+                            fechaHoraInicio: obtenerFechaDesdeFormato(datosVotacion.votacion['fechaHoraInicio']),
+                            fechaHoraFin: obtenerFechaDesdeFormato(datosVotacion.votacion['fechaHoraFin']),
                             opciones: this.opc,
                             idsOpcionesEliminar: []
                         }
@@ -178,6 +171,9 @@
                 try {
                     const url = `${urlBase}/votacion/${this.idVotacion}`;
 
+                    this.votacion.fechaHoraInicio = obtenerFechaConFormato(this.votacion.fechaHoraInicio);
+                    this.votacion.fechaHoraFin = obtenerFechaConFormato(this.votacion.fechaHoraFin);
+
                     const respuestaHttp = await fetch(url, {
                         headers: {
                             'Content-Type': 'application/json',
@@ -193,6 +189,8 @@
                     }
                 } catch (error) {
                     console.log(error);
+                    this.votacion.fechaHoraInicio = obtenerFechaDesdeFormato(this.votacion.fechaHoraInicio);
+                    this.votacion.fechaHoraFin = obtenerFechaDesdeFormato(this.votacion.fechaHoraFin);
                     this.$emit('mostrarMensaje', {
                         Code: Codigos.CodeError,
                         message: "Ocurrió un error al modificar la votación"

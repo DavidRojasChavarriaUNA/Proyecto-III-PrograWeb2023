@@ -47,15 +47,13 @@
 </template>
 
 <script>
-    import {Codigos} from '../../js/sitioInterno';
+    import {Codigos, obtenerFechaConFormato, obtenerFechaDesdeFormato} from '../../js/sitioInterno';
     import {v4 as uuidv4} from 'uuid';
     import newOptionVue from './newOption.vue';
     import optionVue from '../votacion/option.vue';
 
-    const urlBase =
-        import.meta.env.VITE_BASE_URL;
-    const RutaImagenDefault =
-        import.meta.env.VITE_BASE_RUTA_IMAGEN_DEFAULT;
+    const urlBase = import.meta.env.VITE_BASE_URL;
+    const RutaImagenDefault = import.meta.env.VITE_BASE_RUTA_IMAGEN_DEFAULT;
 
     export default {
         data() {
@@ -85,8 +83,8 @@
                     id: uuidv4(),
                     idEstado: Codigos.EstadoEnProceso,
                     descripcion: '',
-                    fechaHoraInicio: '',
-                    fechaHoraFin: '',
+                    fechaHoraInicio: obtenerFechaDesdeFormato(''),
+                    fechaHoraFin: obtenerFechaDesdeFormato(''),
                     opciones: []
                 }
                 this.agregarNuevaOpcion();
@@ -126,6 +124,9 @@
                 try {
                     const url = `${urlBase}/votacion`;
 
+                    this.votacion.fechaHoraInicio = obtenerFechaConFormato(this.votacion.fechaHoraInicio);
+                    this.votacion.fechaHoraFin = obtenerFechaConFormato(this.votacion.fechaHoraFin);
+                    
                     const respuestaHttp = await fetch(url, {
                         headers: {
                             'Content-Type': 'application/json',
@@ -142,6 +143,8 @@
                     }
                 } catch (error) {
                     console.log(error);
+                    this.votacion.fechaHoraInicio = obtenerFechaDesdeFormato(this.votacion.fechaHoraInicio);
+                    this.votacion.fechaHoraFin = obtenerFechaDesdeFormato(this.votacion.fechaHoraFin);
                     this.$emit('mostrarMensaje', {
                         Code: Codigos.CodeError,
                         message: "Ocurrió un error al crear la votación"
