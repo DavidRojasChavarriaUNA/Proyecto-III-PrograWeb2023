@@ -20,7 +20,7 @@ Repositorio
 	https://github.com/DavidRojasChavarriaUNA/Proyecto-III-PrograWeb2023
 Sitio web
 Podrá acceder al sitio web del proyecto III en la siguiente dirección web:
-	Agregar la url
+	http://pr-iii-prg-web-2023.liveblog365.com/
 
 Para desarrollo
 
