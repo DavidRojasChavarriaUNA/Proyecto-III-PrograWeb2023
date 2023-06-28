@@ -4,19 +4,19 @@
         <div class="field col-12">
             <label class="mt-2">Titulo votación:</label>
             <InputText type="text"
-                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                class="w-full"
                 :value="votacion.descripcion" readonly></InputText>
         </div>
         <div class="field col-6">
             <label class="mt-2">Fecha y hora de apertura:</label>
             <InputText type="text"
-                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                class="w-full"
                 :value="votacion.fechaHoraInicio" readonly></InputText>
         </div>
         <div class="field col-6">
             <label class="mt-2">Fecha y hora de cierre</label>
             <InputText type="text"
-                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                class="w-full"
                 :value="votacion.fechaHoraFin" readonly></InputText>
         </div>
     </div>

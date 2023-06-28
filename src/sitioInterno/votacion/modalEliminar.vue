@@ -1,30 +1,23 @@
 <template>
     <!-- Modal Eliminar-->
-    <div class="modal fade" :id="`modalEliminar${posicion}`" tabindex="-1" aria-labelledby="labelEliminar" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="labelEliminar">Eliminar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ¿Desea eliminar el elemento seleccionado?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="AccionEliminar" type="button" class="btn btn-danger" @click="notificarEliminarOpcion">Eliminar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <Dialog :visible="mostrarModal" header="Eliminar" modal @update:visible="cerrarModalEliminar">
+        <p>¿Desea eliminar el elemento seleccionado?</p>
+        <template #footer>
+            <Button label="Cerrar" severity="secondary" @click="cerrarModalEliminar" />
+            <Button label="Eliminar" severity="danger" outlined @click="notificarEliminarOpcion" />
+        </template>
+    </Dialog>
 </template>
 
 <script>
     export default {
-        props:['posicion'],
+        props:['posicion', 'mostrarModal'],
         methods:{
             notificarEliminarOpcion(){
                 this.$emit('notificarEliminarOpcion');
+            },
+            cerrarModalEliminar() {
+                this.$emit('cerrarModalEliminar');
             }
         }
     }

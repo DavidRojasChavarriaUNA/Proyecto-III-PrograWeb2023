@@ -1,9 +1,9 @@
 <template>
-    <div class="col-md-3 border p-5">
+    <div class="col-12 md:col-3 p-1">
         <Card>
             <template #header>
                 <div class="flex align-items-center justify-content-center">
-                <i class="pi pi-plus-circle text-green-600" style="font-size: 2.5rem !important;"></i>
+                <i class="pi pi-plus-circle text-green-600 mt-5" style="font-size: 2.5rem !important;"></i>
                 </div>
             </template>
             <template #content>
