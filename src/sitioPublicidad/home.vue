@@ -1,10 +1,6 @@
 <template>
     <main class="uk-container">
-        <section id="bienvenida">
-            <article>
-                <h3>Carousel</h3>
-            </article>
-        </section>
+       
         <section id="lstClientes" class="text-center surface-50 m-5">
             <article>
                 <p class="font-light text-center text-5xl">Algunos de nuestros clientes</p>
