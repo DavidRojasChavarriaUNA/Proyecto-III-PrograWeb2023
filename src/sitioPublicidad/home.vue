@@ -340,7 +340,7 @@
                             <div class="p-card surface-200 w-20rem">
                                 <div class="p-card-title">
                                     <div class="flex-1 flex align-items-center">
-                                        <img src="/assets/imagenes/nerdface.png" class=" w-3 mt-1 ml-3">
+                                        <img src="/assets/imagenes/nerdFace.jpg" class=" w-3 mt-1 ml-3">
                                         <div>
                                             <h4 class="font-normal">Organización</h4>
                                             <p class="font-normal ml-4">A tan solo $400</p>
