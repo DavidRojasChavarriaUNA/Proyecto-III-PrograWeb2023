@@ -1,5 +1,11 @@
 import '../css/siteInterno.css'
-import {format as format_Date, parse as parse_Date} from 'date-fns';
+import {
+    format as format_Date,
+    parse as parse_Date
+} from 'date-fns';
+
+const urlBase =
+    import.meta.env.VITE_BASE_URL;
 
 const None = -1;
 const CodeSuccess = 0;
@@ -26,15 +32,33 @@ export const Codigos = {
 };
 
 export const obtenerFechaConFormato = (fechaString) => {
-    if(!fechaString)
+    if (!fechaString)
         return '';
     const fecha = new Date(fechaString);
-    return format_Date(fecha, 'yyyy-MM-dd HH:mm').replace(' ','T');
+    return format_Date(fecha, 'yyyy-MM-dd HH:mm').replace(' ', 'T');
 }
 
 export const obtenerFechaDesdeFormato = (fechaString) => {
-    if(!fechaString)
+    if (!fechaString)
         return '';
-    fechaString = fechaString.replace('T',' ');
+    fechaString = fechaString.replace('T', ' ');
     return parse_Date(fechaString, 'yyyy-MM-dd HH:mm', new Date());
+}
+
+export const _obtenerUsuarioAutenticado = async (idUsuario) => {
+    try {
+        const respuestaHttp = await fetch(`${urlBase}/seguridad/${idUsuario}`, {
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        const datosUsuario = await respuestaHttp.json();
+        return datosUsuario;
+    } catch (error) {
+        console.log(error);
+        return {
+            Code: Codigos.CodeError,
+            message: "Ocurrió un error al obtener las votaciones pendientes del usuario"
+        }
+    }
 }
