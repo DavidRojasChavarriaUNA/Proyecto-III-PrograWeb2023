@@ -25,6 +25,9 @@ import Menubar from 'primevue/menubar'
 import Image from 'primevue/image'
 import RadioButton from 'primevue/radiobutton'
 import Dialog from 'primevue/dialog'
+import Carousel from 'primevue/carousel';
+import Toolbar from 'primevue/toolbar';
+import Divider from 'primevue/divider'
 
 import SitioInterno from './sitioInterno/App.vue'
 
@@ -102,5 +105,7 @@ app.component('Menubar', Menubar);
 app.component('Image', Image);
 app.component('RadioButton', RadioButton);
 app.component('Dialog', Dialog);
-
+app.component('Carousel', Carousel);
+app.component('Toolbar', Toolbar);
+app.component('Divider', Divider);
 app.mount('#app')

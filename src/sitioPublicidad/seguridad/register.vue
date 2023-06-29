@@ -1,8 +1,8 @@
 <template>
-  <main>
+  <main >
     <article id="registro" class="flex flex-wrap align-items-center justify-content-center">
       <div class="p-jc-center p-ai-center">
-        <div class="p-card p-p-2 mb-7 w-28rem">
+        <div class="p-card p-p-2 mb-7 w-28rem mt-4">
           <div class="p-card-title">
             <br />
             <h3 class="text-center text-black-alpha-80 font-normal">Bienvenido a bordo!</h3>

@@ -1,519 +1,475 @@
 <template>
-        <main class="uk-container">
-            <section id="bienvenida">
-                <article class="uk-article">
-                    <div uk-slideshow="animation: push">
-                        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-                            <ul class="uk-slideshow-items">
-                                <li>
-                                    <section>
-                                        <h1 class="textoEnCarrusel h1TextoImg1">Confidencialidad garantizada</h1>
-                                        <p class="textoEnCarrusel pTextoImg1">El voto es un derecho y un secreto, garantizamos
-                                            su secreto y
-                                            seguridad al votar con nuestra herramienta</p>
-                                        <img src="/assets/imagenes/presentación.webp" alt="" uk-cover
-                                            class="img-responsive">
-                                    </section>
-                                </li>
-                                <li>
-                                    <section>
-                                        <img src="/assets/imagenes/diseñoResponsivo.jpeg" alt="" uk-cover
-                                            class="img-responsive">
-                                        <h1 class="textoEnCarrusel h1TextoImg2">Diseño adaptable</h1>
-                                        <p class="textoEnCarrusel pTextoImg2">No importa el tamaño del dispositivo del usuario,
-                                            nuestra
-                                            herramienta se adapta a ella, facilitando la visualización y uso de ella.</p>
-                                    </section>
-                                </li>
-                                <li>
-                                    <section>
-                                        <img src="/assets/imagenes/Reportes.webp" alt="" uk-cover class="img-responsive">
-                                        <h1 class="textoEnCarrusel h1TextoImg3">Reportes en tiempo Real</h1>
-                                        <p class="textoEnCarrusel pTextoImg3">Visualización de resultados en tiempo real
-                                            conforme son recibidas
-                                            las respuestas.</p>
-                                    </section>
-                                </li>
-                            </ul>
-                            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
-                                uk-slideshow-item="previous"></a>
-                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
-                                uk-slideshow-item="next"></a>
-                        </div>
-                        <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
-                    </div>
-                </article>
-            </section>
-            <section id="lstClientes" class="uk-section uk-section-muted uk-margin uk-padding uk-text-center">
-                <article class="uk-article">
-                    <h1 class="uk-article-title uk-text-center">Algunos de nuestros clientes</h1>
-                    <div class="uk-grid-small" uk-grid>
-                        <div class="uk-width-1-3 uk-width-1-4@s uk-width-1-4@m">
-                        </div>
-                        <div class="uk-width-1-3 uk-width-1-4@s uk-width-1-6@m">
-                            <div class="uk-animation-toggle" tabindex="0">
-                                <div
-                                    class="uk-card uk-card-default uk-card-body uk-animation-scale-up uk-transform-origin-top-center">
-                                    <img src="/assets/imagenes/playstation.png" class="img-responsive">
-                                </div>
+    <main class="uk-container">
+        <section id="bienvenida">
+            <article>
+                <h3>Carousel</h3>
+            </article>
+        </section>
+        <section id="lstClientes" class="text-center surface-50 m-5">
+            <article>
+                <p class="font-light text-center text-5xl">Algunos de nuestros clientes</p>
+                <div class="grid">
+                    <div class="col flex flex-row-reverse flex-wrap scalein animation-duration-1000">
+                        <div class="p-card w-4 ml-2  text-center surface-200 font-bold max-h-7rem">
+                            <div class="p-card-body">
+                                <img src="/assets/imagenes/playstation.png" class="w-full">
                             </div>
-                        </div>
-                        <div class="uk-width-1-3 uk-hidden@s"></div>
-                        <div class="uk-width-1-3 uk-hidden@s"></div>
-                        <div class="uk-width-1-3 uk-width-1-4@s uk-width-1-6@m">
-                            <div class="uk-animation-toggle" tabindex="0">
-                                <div
-                                    class="uk-card uk-card-default uk-card-body uk-animation-scale-up uk-transform-origin-top-center">
-                                    <img src="/assets/imagenes/intel.png" class="img-responsive">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="uk-width-1-3 uk-hidden@s"></div>
-                        <div class="uk-width-1-3 uk-hidden@s"></div>
-                        <div class="uk-visible@s uk-hidden@m uk-width-1-4@s"></div>
-                        <div class="uk-visible@s uk-hidden@m uk-width-1-4@s"></div>
-                        <div class="uk-width-1-3 uk-width-1-4@s uk-width-1-6@m">
-                            <div class="uk-animation-toggle" tabindex="0">
-                                <div
-                                    class="uk-card uk-card-default uk-card-body uk-animation-scale-up uk-transform-origin-top-center">
-                                    <img src="/assets/imagenes/amd.png" class="img-responsive">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="uk-width-1-3 uk-hidden@s"></div>
-                        <div class="uk-width-1-3 uk-hidden@s"></div>
-                        <div class="uk-visible@m uk-width-1-4@m">
-                        </div>
-                        <div class="uk-visible@m uk-width-1-4@m">
-                        </div>
-                        <div class="uk-width-1-3 uk-width-1-4@s uk-width-1-6@m">
-                            <div class="uk-animation-toggle" tabindex="0">
-                                <div
-                                    class="uk-card uk-card-default uk-card-body uk-animation-scale-up uk-transform-origin-top-center">
-                                    <img src="/assets/imagenes/cube.jpg" class="img-responsive">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="uk-width-1-3 uk-hidden@s"></div>
-                        <div class="uk-width-1-3 uk-hidden@s"></div>
-                        <div class="uk-visible@s uk-hidden@m uk-width-1-4@s"></div>
-                        <div class="uk-visible@s uk-hidden@m uk-width-1-4@s"></div>
-                        <div class="uk-width-1-3 uk-width-1-4@s uk-width-1-6@m">
-                            <div class="uk-animation-toggle" tabindex="0">
-                                <div
-                                    class="uk-card uk-card-default uk-card-body uk-animation-scale-up uk-transform-origin-top-center">
-                                    <img src="/assets/imagenes/nvidia.png" class="img-responsive">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="uk-width-1-3 uk-hidden@s"></div>
-                        <div class="uk-width-1-3 uk-hidden@s"></div>
-                        <div class="uk-width-1-3 uk-width-1-4@s uk-width-1-6@m">
-                            <div class="uk-animation-toggle" tabindex="0">
-                                <div
-                                    class="uk-card uk-card-default uk-card-body uk-animation-scale-up uk-transform-origin-top-center">
-                                    <img src="/assets/imagenes/lego.png" class="img-responsive">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="uk-width-1-3 uk-width-1-4@s uk-width-1-4">
                         </div>
                     </div>
-                    <section class="uk-text-center uk-margin">
-                        <div class="uk-card uk-card-default uk-card-body uk-text-center">
-                            <h4>Empresas reconocidas internacionalmente confian en nosostros, animate a ser parte de nuestra
-                                familia</h4>
+                    <div
+                        class="col flex flex-wrap align-items-center scalein animation-duration-1000 justify-content-center ">
+                        <div class="p-card w-4 ml-2  text-center surface-200 font-bold max-h-7rem">
+                            <div class="p-card-body">
+                                <img src="/assets/imagenes/intel.png" class="w-full">
+                            </div>
                         </div>
-                    </section>
-                </article>
-            </section>
-            <section id="lstCaractFuncUsuario"
-                class="uk-section uk-section-default uk-margin uk-padding uk-section uk-section-default uk-margin">
-                <h1 class="uk-text-center">Caracteristicas funcionales</h1>
-                <div class="uk-grid-match" uk-grid>
-                    <article class="uk-width-1-2@s uk-width-1-3@m">
-                        <section class="uk-card uk-card-default">
-                            <div class="uk-card-header">
-                                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                    <div class="uk-width-auto">
-                                        <img class="img-responsive" style="max-width: 100px;"
-                                            src="/assets/imagenes/Mail.png">
+                    </div>
+                    <div class="col">
+                        <div
+                            class="p-card w-4 ml-2  text-center surface-200 font-bold max-h-7rem scalein animation-duration-1000">
+                            <div class="p-card-body">
+                                <img src="/assets/imagenes/amd.png" class="w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid" style="margin-bottom:6%;">
+                    <div class="col flex flex-row-reverse flex-wrap">
+                        <div
+                            class="p-card w-4 ml-2  text-center surface-200 font-bold max-h-7rem scalein animation-duration-1000">
+                            <div class="p-card-body">
+                                <img src="/assets/imagenes/cube.png" class="w-full">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col flex flex-wrap align-items-center justify-content-center">
+                        <div
+                            class="p-card w-4 ml-2  text-center surface-200 font-bold max-h-7rem scalein animation-duration-1000">
+                            <div class="p-card-body">
+                                <img src="/assets/imagenes/nvidia.png" class="w-12">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div
+                            class="p-card w-4 ml-2  text-center surface-200 font-bold max-h-7rem scalein animation-duration-1000">
+                            <div class="p-card-body">
+                                <img src="/assets/imagenes/lego.png" class="w-10">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section class="text-center">
+                    <div class="h-7rem m-5">
+                        <div class="p-card p-card-default p-card-body text-center surface-200">
+                            <br>
+                            <p class="font-light">Empresas reconocidas internacionalmente confian en nosostros, animate a
+                                ser parte de nuestra
+                                familia</p>
+                            <br>
+                        </div>
+                    </div>
+
+                </section>
+            </article>
+        </section>
+        <section id="lstCaractFuncUsuario" class="m-auto p-auto">
+            <h1 class="text-center font-light text-5xl" style="margin-top:6%">Caracteristicas funcionales</h1>
+            <div class="grid">
+                <div class="col flex flex-row-reverse flex-wrap">
+                    <div class=" p-3">
+                        <div class="p-card mt-4 surface-200" style="width: 20em">
+                            <div class="p-card-title">
+                                <div class="grid">
+                                    <div class="col-4 text-center ml-2">
+                                        <img src="/assets/imagenes/Mail.png" class="w-9 mt-1">
                                     </div>
-                                    <div class="uk-width-expand">
-                                        <h3 class="uk-card-title uk-margin-remove-bottom">Notificaciones</h3>
+                                    <div class="col">
+                                        <p class="font-normal">
+                                            Notificaciones
+                                        </p>
                                     </div>
                                 </div>
+                                <Divider />
                             </div>
-                            <div class="uk-card-body">
-                                <p>Se envian los enlaces para votar a los que sean de interes por medio de correo electrónico
-                                </p>
+                            <div class="p-card-body text-center">
+                                <p>Se envian los enlaces para votar a los que sean de interes por medio de correo
+                                    electrónico</p>
                             </div>
-                        </section>
-                    </article>
-                    <article class="uk-width-1-2@s uk-width-1-3@m">
-                        <section class="uk-card uk-card-default">
-                            <div class="uk-card-header">
-                                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                    <div class="uk-width-auto">
-                                        <img class="img-responsive" style="max-width: 100px;"
-                                            src="/assets/imagenes/Voto.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col flex flex-wrap align-items-center justify-content-center">
+                    <div class="p-3">
+                        <div class="p-card mt-4 surface-200" style="width: 20em">
+                            <div class="p-card-title">
+                                <div class="grid">
+                                    <div class="col-4 text-center ml-2">
+                                        <img src="/assets/imagenes/Voto.png" class="w-9 mt-1">
                                     </div>
-                                    <div class="uk-width-expand">
-                                        <h3 class="uk-card-title uk-margin-remove-bottom">Voto seguro</h3>
+                                    <div class="col">
+                                        <p class="font-normal">
+                                            Voto seguro
+                                        </p>
                                     </div>
                                 </div>
+                                <Divider />
                             </div>
-                            <div class="uk-card-body">
+                            <div class="p-card-body text-center">
                                 <p>El voto se realiza de forma segura, confiable y confidencial, nadie podrá identificar el
                                     dueño del
                                     resultado</p>
                             </div>
-                        </section>
-                    </article>
-                    <article class="uk-width-1-1@s uk-width-1-3@m">
-                        <section class="uk-card uk-card-default">
-                            <div class="uk-card-header">
-                                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                    <div class="uk-width-auto">
-                                        <img class="img-responsive" style="max-width: 100px;"
-                                            src="/assets/imagenes/formulario.png">
-                                    </div>
-                                    <div class="uk-width-expand">
-                                        <h3 class="uk-card-title uk-margin-remove-bottom">Crear voto</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="uk-card-body">
-                                <p>Facilidad para crear votaciones o encuestas rapidamente por medio de arrastrar y soltar</p>
-                            </div>
-                        </section>
-                    </article>
+                        </div>
+                    </div>
                 </div>
-            </section>
-            <section id="lstCaractTenicas"
-                class="uk-section uk-section-muted uk-preserve-color uk-margin uk-padding uk-section uk-section-default uk-margin">
-                <h1 class="uk-text-center">Caracteristicas técnicas</h1>
-                <article class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex"
-                    style="background-image: url('/assets/imagenes/Seguridad.jpg');">
-                    <section class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
-                        <h1 class="text-white" uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; end: 50vh + 50%;">Integridad de
-                            datos
-                        </h1>
-                        <p class="text-white" uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; end: 50vh + 50%;">la protección
-                            de
-                            datos es vital para evitar modificaciones no autorizadas.</p>
-                    </section>
-                </article>
-                <article class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex"
-                    style="background-image: url('/assets/imagenes/Soporte.jpg');">
-                    <section class="uk-width-1-2@m uk-text-center  uk-margin-auto" style="margin-top: 300px;">
-                        <h1 class="text-white"
-                            uk-parallax="opacity: 0,1,1; y: -100,0,0; x: 100,100,0; scale: 2,1,1; end: 50vh + 50%;">
-                            Servicio disponible</h1>
-                        <p class="text-white"
-                            uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; end: 50vh + 50%;">
-                            plataforma
-                            dispoible en tiempo real, para realizar las votaciones en cualquier momento con una gran cantidad de
-                            usuarios
-                            simultaneamente</p>
-                    </section>
-                </article>
-                <article class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex"
-                    style="background-image: url('/assets/imagenes/SecurityLoggin.png');">
-                    <section class="uk-width-1-2@m uk-text-center">
-                        <h1 class="text-white"
-                            uk-parallax="opacity: 0,1,1; y: -100,0,0; x: 100,100,0; scale: 2,1,1; end: 50vh + 50%;">
-                            Monitorero y registro de logs</h1>
-                        <p class="text-white"
-                            uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; end: 50vh + 50%;">T odas
-                            las
-                            actividades realizadas se registran en los logs, cualquier actividad inusual se notifica al
-                            administrador</p>
-                    </section>
-                </article>
-            </section>
-            <section id="lstFuncAdministradores" class="uk-section uk-section-default uk-margin uk-text-center">
-                <h1>Caracteristicas especiales para administradores</h1>
-                <div class="uk-flex uk-width-1-1 uk-flex-wrap">
-                    <div class="uk-padding uk-width-1-3@m">
-                        <div>
-                            <div class="uk-card uk-card-default">
-                                <div class="uk-card-media-top">
-                                    <img src="/assets/imagenes/accesibility.png" width="1800" height="1200" alt="">
+                <div class="col">
+                    <div class="p-3">
+                        <div class="p-card mt-4 surface-200" style="width: 20em">
+                            <div class="p-card-title">
+                                <div class="grid">
+                                    <div class="col-4 text-center ml-2">
+                                        <img src="/assets/imagenes/formulario.png" class="w-9 mt-1">
+                                    </div>
+                                    <div class="col">
+                                        <p class="font-normal">
+                                            Crear voto
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="uk-card-body">
-                                    <h3 class="uk-card-title">Accesibilidad</h3>
-                                    <p>Acceda a datos de las votaciones en tiempo real desde cualquier dispositivo, gracias a
-                                        nuestro diseño
-                                        responsivo</p>
-                                </div>
+                                <Divider />
                             </div>
-                        </div>
-                    </div>
-                    <div class="uk-padding uk-width-1-3@m">
-                        <div>
-                            <div class="uk-card uk-card-default">
-                                <div class="uk-card-media-top">
-                                    <img src="/assets/imagenes/auditoria.jpg" width="1800" height="1200" alt="">
-                                </div>
-                                <div class="uk-card-body">
-                                    <h3 class="uk-card-title">Auditoria de votos</h3>
-                                    <p>Contamos con documentación juridica y extra seguridad para votaciones importantes</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="uk-padding uk-width-1-3@m">
-                        <div>
-                            <div class="uk-card uk-card-default">
-                                <div class="uk-card-media-top">
-                                    <img src="/assets/imagenes/analitica.jpg" width="1800" height="1200" alt="">
-                                </div>
-                                <div class="uk-card-body">
-                                    <h3 class="uk-card-title">Analitica y reporteria</h3>
-                                    <p>Tenemos a su disposición gran cantidad de opciones de reportería y herramientas de
-                                        análisis</p>
-                                </div>
+                            <div class="p-card-body text-center">
+                                <p>Facilidad para crear votaciones o encuestas rapidamente por medio de arrastrar y soltar
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-            </section>
-
-            <section id="srvCliente" class="uk-section uk-section-muted uk-margin uk-padding uk-text-center">
-                <h1>Servicio al cliente personalizado para asegurar sus elecciones</h1>
-                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-                    <div class="uk-card-media-left uk-cover-container">
-                        <img src="/assets/imagenes/customerservice.webp" alt="" uk-cover>
-                        <canvas width="600" height="400"></canvas>
-                    </div>
-                    <div class="uk-align-center uk-text-middle">
-                        <div class="uk-card-body uk-height-1-1">
-                            <h3 class="uk-card-title">Servicio al cliente para tí y tus votantes</h3>
-                            <p>A medida que preparas las elecciones o mientras éstas suceden, pueden surgir dudas, aquí estamos
-                                para lo
-                                que necesites</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-                    <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
-                        <img src="/assets/imagenes/teamMeeting.jpg" alt="" uk-cover>
-                        <canvas width="600" height="400"></canvas>
-                    </div>
-                    <div class="uk-text-middle uk-align-center">
-                        <div class="uk-card-body">
-                            <h3 class="uk-card-title">Diferentes niveles de soporte para obtener un servicio a la medida</h3>
-                            <p>Independientemente de las necesidades de tu organización, con nuestros diferentes planes, te
-                                aseguramos que
-                                siempre estarás cubierto</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <article id="planesPrecios" class="uk-section uk-section-default uk-margin uk-align-center uk-text-center">
-                <h1>Nuestros Planes</h1>
-                <div class="uk-flex uk-flex-center uk-flex-wrap">
-                    <section class="uk-width-1-3@m">
-                        <div class="uk-card uk-card-default">
-                            <div class="uk-card-header">
-                                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                    <div class="uk-width-auto">
-                                        <img class="uk-border-circle" width="40" height="40"
-                                            src="/assets/imagenes/happyFacepng.png">
-                                    </div>
-                                    <div class="uk-width-expand">
-                                        <h3 class="uk-card-title uk-margin-remove-bottom">Pro</h3>
-                                        <p class="uk-text-meta uk-margin-remove-top"></p><p>A tan solo $200</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="uk-card-body">
-                                <p class="uk-text-left"><strong>Incluye:</strong></p>
-                                <div class="uk-flex uk-flex-column">
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Votos ilimitados</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Votaciones seguras</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Sistemas anti-fraude</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">100 opciones por voto</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Datos de las elecciones al finalizar</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Notificaciones de votacion por email</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Soporte via email</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Voto anonimo</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="uk-card-footer">
-                                <a href="#" class="uk-button uk-button-text">Leer mas</a>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="uk-width-1-3@m">
-                        <div class="uk-card uk-card-default uk-margin">
-                            <div class="uk-card-header">
-                                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                    <div class="uk-width-auto">
-                                        <img class="uk-border-circle" width="40" height="40"
-                                            src="/assets/imagenes/nerdFace.jpg">
-                                    </div>
-                                    <div class="uk-width-expand">
-                                        <h3 class="uk-card-title uk-margin-remove-bottom">Organizacion</h3>
-                                        <p class="uk-text-meta uk-margin-remove-top"></p><p>A tan solo $400</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="uk-card-body">
-                                <p class="uk-text-left"><strong>Incluye:</strong></p>
-                                <div class="uk-flex uk-flex-column">
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Votos ilimitados</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Votaciones seguras</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Sistemas anti-fraude</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">100 opciones por voto</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Datos de las elecciones al finalizar</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Notificaciones de votacion</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Soporte via chat/email</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Voto anonimo</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Opciones de auditoria</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Metodos personalizados de conteo de votos</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="uk-card-footer">
-                                <a href="#" class="uk-button uk-button-text">Leer mas</a>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="uk-width-1-3@m">
-                        <div class="uk-card uk-card-default uk-margin">
-                            <div class="uk-card-header">
-                                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                    <div class="uk-width-auto">
-                                        <img class="uk-border-circle" width="40" height="40"
-                                            src="/assets/imagenes/cooldFace.png">
-                                    </div>
-                                    <div class="uk-width-expand">
-                                        <h3 class="uk-card-title uk-margin-remove-bottom">Business</h3>
-                                        <p class="uk-text-meta uk-margin-remove-top"></p><p>Desde $1000</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="uk-card-body">
-                                <p class="uk-text-left"><strong>Incluye:</strong></p>
-                                <div class="uk-flex uk-flex-column">
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Votos ilimitados</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Votaciones seguras</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Sistemas anti-fraude</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">100 opciones por voto</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Datos en tiempo real de las elecciones</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Notificaciones de votacion personalizadas</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Soporte via chat/email/voz</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Voto anonimo</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Integracion con Single Sign On (SSO)</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Mejores opciones de auditoria</p>
-                                    </div>
-                                    <div class="uk-flex uk-flex-inline uk-flex-center uk-margin-small">
-                                        <span class="uk-text-success uk-text-middle" uk-icon="check"></span>
-                                        <p class="uk-margin-remove">Metodos personalizados de conteo de votos</p>
-                                    </div>
-                                </div>
-                            </div>
-                        <div class="uk-card-footer">
-                            <a href="#" class="uk-button uk-button-text">Read more</a>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </article>
-        <section id="registro" class="uk-section uk-section-muted uk-margin">
-            <h2 class="uk-article-title uk-text-center">Registrese y obtenga acceso a una demo completa</h2>
-            <div class="uk-text-center">
-                <a href="/register" class="uk-button uk-button-primary uk-button-large">Registro</a>
             </div>
         </section>
+        <section id="lstCaractTenicas" class="p-auto surface-50 m-5">
+            <br>
+            <h1 class="text-center font-normal text-5xl">Caracteristicas técnicas</h1>
+            <article>
+                <div class="flex align-items-center justify-content-center ">
+                    <div class="bg-no-repeat bg-primary-100 bg-center w-full h-25rem bg-black-alpha-10"
+                        style="background-image: url('/assets/imagenes/Seguridad.jpg')">
+                        <section class="text-center m-auto p-auto font-normal">
+                            <h1
+                                class="text-white-alpha-90 scalein animation-duration-2000 animation-iteration-infinite text-5xl">
+                                Integridad de
+                                datos
+                            </h1>
+                            <p class="text-white-alpha-90 scalein animation-duration-2000 animation-iteration-infinite">La
+                                protección
+                                de
+                                datos es vital para evitar modificaciones no autorizadas.</p>
+                        </section>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div class="flex align-items-center justify-content-center ">
+                    <div class="bg-no-repeat bg-primary-100 bg-center w-full h-25rem bg-black-alpha-10"
+                        style="background-image: url('/assets/imagenes/Soporte.jpg')">
+                        <section class="text-center m-auto p-auto font-normal ">
+                            <h1
+                                class="text-white-alpha-90 scalein animation-duration-2000 animation-iteration-infinite text-5xl">
+                                Servicio disponible
+                            </h1>
+                            <p class="text-white-alpha-90 scalein animation-duration-2000 animation-iteration-infinite">
+                                plataforma
+                                dispoible en tiempo real, para realizar las votaciones en cualquier momento con una gran
+                                cantidad de
+                                usuarios
+                                simultaneamente</p>
+                        </section>
+                    </div>
+                </div>
+
+            </article>
+            <article>
+                <div class="flex align-items-center justify-content-center ">
+                    <div class="bg-no-repeat bg-primary-100 bg-center w-full h-25rem bg-black-alpha-10"
+                        style="background-image: url('/assets/imagenes/SecurityLoggin.png')">
+                        <section class="text-left p-auto font-normal" style="margin-left:10%;">
+                            <h1
+                                class="text-white-alpha-90 scalein animation-duration-2000 animation-iteration-infinite text-5xl">
+                                Monitorero y registro de logs
+                            </h1>
+                            <p class="text-white-alpha-90 scalein animation-duration-2000 animation-iteration-infinite">
+                                Todas
+                                las actividades realizadas se registran en los logs, </p>
+                            <p class="text-white-alpha-90 scalein animation-duration-2000 animation-iteration-infinite">
+                                cualquier actividad inusual se notifica al
+                                administrador</p>
+                        </section>
+                    </div>
+                </div>
+            </article>
+
+            <br>
+        </section>
+        <section id="lstFuncAdministradores" class="m-8 text-center">
+            <h1 class="font-light text-5xl" style="margin-top:6%">Caracteristicas especiales para administradores</h1>
+
+            <div class="grid">
+                <div class="col">
+                    <div class="p-card surface-200">
+                        <div class="p-card-title">
+                            <img src="/assets/imagenes/accesibility.png" class="w-8 mt-5" alt="">
+                        </div>
+                        <div class="p-card-body">
+                            <h3 class="p-card-title font-normal">Accesibilidad</h3>
+                            <p>Acceda a datos de las votaciones en tiempo real desde cualquier dispositivo, gracias a
+                                nuestro diseño
+                                responsivo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-card surface-200">
+                        <div class="p-card-title">
+                            <img src="/assets/imagenes/auditoria.jpg" class="w-8 mt-5" alt="">
+                        </div>
+                        <div class="p-card-body">
+                            <h3 class="p-card-title font-normal">Auditoria de votos</h3>
+                            <p>Contamos con documentación juridica y extra seguridad para votaciones importantes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-card surface-200">
+                        <div class="p-card-title">
+                            <img src="/assets/imagenes/analitica.jpg" class="w-8 mt-5" alt="">
+                        </div>
+                        <div class="p-card-body">
+                            <h3 class="p-card-title font-normal">Analitica y reporteria</h3>
+                            <p>Tenemos a su disposición gran cantidad de opciones de reportería y herramientas de
+                                análisis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="srvCliente" class="p-auto text-center surface-50 m-5">
+            <br>
+            <h1 class="text-center font-light text-4xl">Servicio al cliente personalizado para
+                asegurar sus elecciones</h1>
+            <div class="grid surface-200 m-8 border-round">
+                <div class="col">
+                    <img src="/assets/imagenes/customerservice.webp" alt="">
+                </div>
+                <div class="col mt-5">
+                    <h3 class="font-normal text-3xl">Servicio al cliente para tí y tus votantes</h3>
+                    <p class="font-ligth">A medida que preparas las elecciones o mientras éstas suceden, pueden surgir
+                        dudas, aquí estamos
+                        para lo
+                        que necesites</p>
+                </div>
+            </div>
+
+            <div class="grid surface-200 m-8 border-round">
+                <div class="col">
+                    <img src="/assets/imagenes/teamMeeting.jpg" style="width:100%" alt="">
+                </div>
+                <div class="col mt-5">
+                    <h3 class="font-normal text-3xl">Diferentes niveles de soporte para obtener un servicio a la medida</h3>
+                    <p class="font-ligth">Independientemente de las necesidades de tu organización, con nuestros diferentes
+                        planes, te
+                        aseguramos que
+                        siempre estarás cubierto</p>
+                </div>
+            </div>
+            <br>
+        </section>
+        <section id="planesPrecios">
+            <article class="m-auto text-center">
+                <h1 class="font-light text-5xl">Nuestros Planes</h1>
+                <div class="flex flex-wrap align-items-center justify-content-center">
+                    <div class="grid">
+                        <div class="col">
+                            <div class="p-card surface-200 w-20rem">
+                                <div class="p-card-title">
+                                    <div class="flex-1 flex align-items-center">
+                                        <img src="/assets/imagenes/happyFacepng.png" class=" w-3 mt-1 ml-3">
+                                        <div>
+                                            <h4 class="font-normal">Pro</h4>
+                                            <p class="font-normal ml-4">A tan solo $200</p>
+                                        </div>
+                                    </div>
+                                    <Divider></Divider>
+                                </div>
+                                <div class="p-card-body ">
+                                    <p class="text-normal"><strong>Incluye:</strong></p>
+                                    <div class="flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Votos ilimitados</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Votaciones seguras</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Sistemas anti-fraude</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>100 opciones por voto</p>
+                                    </div>
+                                    <div class="uflex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Datos de las elecciones</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Notificaciones de votacion</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Soporte via email</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Voto anonimo</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="p-card surface-200 w-20rem">
+                                <div class="p-card-title">
+                                    <div class="flex-1 flex align-items-center">
+                                        <img src="/assets/imagenes/nerdface.png" class=" w-3 mt-1 ml-3">
+                                        <div>
+                                            <h4 class="font-normal">Organización</h4>
+                                            <p class="font-normal ml-4">A tan solo $400</p>
+                                        </div>
+                                    </div>
+                                    <Divider></Divider>
+                                </div>
+                                <div class="p-card-body ">
+                                    <p class="text-normal"><strong>Incluye:</strong></p>
+                                    <div class="flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Votos ilimitados</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Votaciones seguras</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Sistemas anti-fraude</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>100 opciones por voto</p>
+                                    </div>
+                                    <div class="uflex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Datos de las elecciones</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Notificaciones de votacion</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Soporte via chat/email</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Voto anonimo</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Opciones de auditoria</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Metodos personalizados de conteo de votos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="p-card surface-200 w-20rem">
+                                <div class="p-card-title">
+                                    <div class="flex-1 flex align-items-center">
+                                        <img src="/assets/imagenes/cooldFace.png" class=" w-3 mt-1 ml-3">
+                                        <div>
+                                            <h4 class="font-normal">Business</h4>
+                                            <p class="font-normal ml-4">ADesde $1000</p>
+                                        </div>
+                                    </div>
+                                    <Divider></Divider>
+                                </div>
+                                <div class="p-card-body ">
+                                    <p class="text-normal"><strong>Incluye:</strong></p>
+                                    <div class="flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Votos ilimitados</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Votaciones seguras</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Sistemas anti-fraude</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>100 opciones por voto</p>
+                                    </div>
+                                    <div class="uflex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Datos en tiempo real</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Notificaciones personalizadas</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Soporte via chat/email/voz</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Integracion con Single Sign On (SSO)</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Voto anonimo</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Mejores opciones de auditoria</p>
+                                    </div>
+                                    <div class="flex-1 flex align-items-center">
+                                        <span><i class="pi pi-check" style="color: green"></i></span>
+                                        <p>Metodos personalizados de conteo de votos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section id="registro" class="m-5 surface-50">
+            <br>
+        <h1 class="text-center font-normal text-4xl">Registrese y obtenga acceso a una demo completa</h1>
+        <div class="text-center">
+            <a href="/register" class="p-button p-button-primary p-button-lg">Registro</a>
+        </div>
+        <br>
+    </section>
     </main>
 </template>
   

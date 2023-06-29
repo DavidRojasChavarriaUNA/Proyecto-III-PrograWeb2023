@@ -1,7 +1,7 @@
 <template>
   <header-publicidad></header-publicidad>
   <router-view></router-view>
-  <footer-publicidad></footer-publicidad>
+  <footer-publicidad></footer-publicidad> 
 </template>
 
 <script>
