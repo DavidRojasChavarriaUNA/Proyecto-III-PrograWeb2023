@@ -1,5 +1,5 @@
 <template>
-  <header-sitio-interno v-bind:usuario="usuario"></header-sitio-interno>
+  <header-sitio-interno></header-sitio-interno>
   <main id="principal" class="grid">
     <div class="col-12 sm:col-1 lg:col-2"></div>
     <div class="col-12 sm:col-10 lg:col-8">
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import {Codigos} from '../js/sitioInterno'
+  import {Codigos, _obtenerUsuarioAutenticado} from '../js/sitioInterno'
   import headerSitioInterno from './headerSitioInterno.vue'
   import footerSitioInterno from './footerSitioInterno.vue'
   import toastAlert from '../toadsAlerts/toastAlert.vue'
@@ -65,12 +65,8 @@
       async obtenerUsuarioAutenticado() {
         try {
           const idUsuario = this.$route.params.idUsuario;
-          const respuestaHttp = await fetch(`${urlBase}/seguridad/${idUsuario}`, {
-            headers: {
-              'Accept': 'application/json'
-            }
-          });
-          const datosUsuario = await respuestaHttp.json();
+
+          const datosUsuario = await _obtenerUsuarioAutenticado(idUsuario);
           if (datosUsuario && (datosUsuario.Code == Codigos.CodeSuccess)) {
             this.usuario = datosUsuario.User;
           } else {
